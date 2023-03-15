@@ -1,0 +1,30 @@
+.banner--page-title {
+	position: relative;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	padding: 130px 0;
+
+	@media (min-width: 1600px) {
+		padding: 180px 0;
+	}
+
+	@media (max-width: 767px) {
+		padding: 50px 0;
+	}
+
+	.title {
+		display: inline-block;
+		font-weight: 900;
+		font-size: 32px;
+		line-height: calc(38 / 32);
+		color: #ffffff;
+		text-shadow: 0px 2px 20px rgba(0, 209, 255, 0.8);
+		text-transform: uppercase;
+		margin: 0;
+
+		@media (max-width: 767px) {
+			font-size: 24px;
+		}
+	}
+}

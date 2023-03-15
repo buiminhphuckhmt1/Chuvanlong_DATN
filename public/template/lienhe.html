@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Trường thành Đại Việt</title>
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="home">
+	<div id="app">
+		<myheader></myheader>
+		<main>
+			<page-title title="Liên hệ"></page-title>
+			<div class="master-wrapper">
+				<div class="container">
+					<div class="contact-wrapper">
+
+						<div class="row">
+							<div class="col-lg-4 col-12 mb-4 mb-lg-0">
+								<div class="content-contact">
+
+									<div class="list-contact">
+
+										<h3>Văn phòng TP. Hà Nội</h3>
+
+										<ul>
+											<li>
+												<img src="images/contact/mappoin.png" alt="">
+												<span>
+													16A5 Lý Nam Đế, Phường Hàng Mã, Q. Hoàn Kiếm, Hà Nội
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/phone.png" alt="">
+												<span>
+													(+84) 24 6259 4879
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/mail.png" alt="">
+												<span>
+													taphuthang@truongthanhdaiviet.com.vn
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/map.png" alt="">
+												<span>
+													Xem bản đồ
+												</span>
+											</li>
+										</ul>
+
+									</div>
+
+									<div class="list-contact">
+
+										<h3>Văn phòng TP. Hà Nội</h3>
+
+										<ul>
+											<li>
+												<img src="images/contact/mappoin.png" alt="">
+												<span>
+													16A5 Lý Nam Đế, Phường Hàng Mã, Q. Hoàn Kiếm, Hà Nội
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/phone.png" alt="">
+												<span>
+													(+84) 24 6259 4879
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/mail.png" alt="">
+												<span>
+													taphuthang@truongthanhdaiviet.com.vn
+												</span>
+											</li>
+
+											<li>
+												<img src="images/contact/map.png" alt="">
+												<span>
+													Xem bản đồ
+												</span>
+											</li>
+										</ul>
+
+									</div>
+
+								</div>
+							</div>
+							<div class="col-lg-8 col-12">
+
+								<div class="map-contact">
+									<iframe
+										src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3724.7914906901083!2d105.8067727!3d21.0009937!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac9788960205%3A0xe4f831d0c56eb989!2sVCCORP!5e0!3m2!1svi!2s!4v1675766824720!5m2!1svi!2s"
+										width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy"
+										referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</main>
+		<myfooter></myfooter>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="js/httpvueloader.js"></script>
+	<script src="libs/jquery/jquery.min.js"></script>
+	<script src="libs/bootstrap/popper.min.js"></script>
+	<script src="libs/bootstrap/bootstrap.min.js"></script>
+	<script src="libs/swiper/swiper-bundle.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			components: {
+				myheader: httpVueLoader('vue_components/header.vue'),
+				myfooter: httpVueLoader('vue_components/footer.vue'),
+				"page-title": httpVueLoader('vue_components/page-title.vue'),
+			},
+			mounted() {
+				$(window).bind('load', function () {
+
+				});
+			},
+		});
+	</script>
+</body>
+
+</html>

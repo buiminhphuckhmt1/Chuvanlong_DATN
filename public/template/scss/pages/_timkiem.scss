@@ -1,0 +1,128 @@
+.search-page {
+	padding: 40px 0;
+
+	@media (min-width: 992px) {
+		padding: 40px 0 90px;
+	}
+
+	.head {
+		margin-bottom: 1.5rem;
+
+		@media (min-width: 992px) {
+			margin-bottom: 2.5rem;
+		}
+
+		.keyword {
+			font-weight: 700;
+			font-size: 28px;
+			line-height: calc(42 / 36);
+			letter-spacing: -0.02em;
+			color: #111111;
+
+			@media (min-width: 768px) {
+				font-size: 36px;
+			}
+
+			span {
+				color: $maincolor;
+			}
+		}
+
+		.result-count {
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 1.5;
+			letter-spacing: -0.01em;
+			color: #666666;
+		}
+	}
+}
+
+.list--search-result {
+	.item {
+		border-bottom: 1px solid #f1f1f1;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+
+		.title {
+			@include line-clamp(2);
+			max-width: 630px;
+			margin-right: auto;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: calc(26 / 20);
+			letter-spacing: -0.01em;
+			color: $maincolor;
+			margin-bottom: 10px;
+		}
+
+		.desc {
+			@include line-clamp(3);
+			max-width: 630px;
+			margin-right: auto;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: calc(26 / 16);
+			letter-spacing: -0.01em;
+			color: #666666;
+			margin-bottom: 0;
+		}
+	}
+}
+
+// page 404
+
+.page-404 {
+	position: relative;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 0;
+	min-height: 75vh;
+
+	.num {
+		display: block;
+		font-weight: 900;
+		font-size: 128px;
+		line-height: 1;
+		color: $maincolor;
+		margin-bottom: 20px;
+	}
+
+	.desc {
+		display: block;
+		font-weight: 700;
+		font-size: 20px;
+		line-height: 1.5;
+		text-align: center;
+		color: #111111;
+		margin-bottom: 40px;
+	}
+
+	.btn-backtohome {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 1;
+		color: #ffffff;
+		text-transform: uppercase;
+		background: $maincolor;
+		border-radius: 60px;
+		padding: 10px 30px;
+		border: none;
+		outline: none;
+		transition: all 0.2s linear;
+
+		&:hover {
+			box-shadow: inset 0 200px 0 #0000002d;
+			transition: all 0.2s linear;
+		}
+
+		svg {
+			flex-shrink: 0;
+		}
+	}
+}

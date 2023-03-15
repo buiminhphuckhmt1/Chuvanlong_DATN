@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trường thành Đại Việt</title>
+  <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="home">
+  <div id="app">
+    <myheader></myheader>
+    <main>
+
+      <div class="container">
+        <div class="page-404">
+          <div class="num">
+            404
+          </div>
+
+          <div class="desc">
+            Xin lỗi ! Chúng tôi không thể tìm thấy trang mà bạn tìm kiếm.
+          </div>
+
+          <button class="btn-backtohome">
+            <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.5 3L10.5575 4.0575L6.3725 8.25H15.5V9.75H6.3725L10.5575 13.9425L9.5 15L3.5 9L9.5 3Z"
+                fill="white" />
+            </svg>
+            VỀ TRANG CHỦ
+          </button>
+        </div>
+      </div>
+
+      <contactform></contactform>
+    </main>
+    <myfooter></myfooter>
+  </div>
+  <script src="js/vue.js"></script>
+  <script src="js/httpvueloader.js"></script>
+  <script src="libs/jquery/jquery.min.js"></script>
+  <script src="libs/bootstrap/popper.min.js"></script>
+  <script src="libs/bootstrap/bootstrap.min.js"></script>
+  <script src="libs/swiper/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      components: {
+        myheader: httpVueLoader('vue_components/header.vue'),
+        myfooter: httpVueLoader('vue_components/footer.vue'),
+        contactform: httpVueLoader('vue_components/contact-form.vue'),
+      },
+      mounted() {
+        $(window).bind('load', function () {
+
+        });
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Trường thành Đại Việt</title>
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="home">
+	<div id="app">
+		<myheader></myheader>
+		<main>
+			<div class="master-wrapper">
+				<page-title title="TIN TỨC"></page-title>
+				<div class="breadcrumb-wrapper">
+					<div class="container">
+						<div class="row-breadcrumb">
+							<nav aria-label="breadcrumb">
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item active" aria-current="page"><a href="#">Tin Tức</a></li>
+									<li class="breadcrumb-item"><a href="#">Thông cáo báo chí</a></li>
+									<li class="breadcrumb-item"><a href="#">Cập nhật hoạt động</a></li>
+									<li class="breadcrumb-item"><a href="#">Tin Video</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="news-wrapper">
+
+						<div class="row">
+							<div class="col-lg-4 col-md-6 col-12 mb-4" v-for="item in 9">
+								<article-blog></article-blog>
+							</div>
+						</div>
+
+						<div class="paginate-custom">
+							<a class="arrow" href="" title="">
+								<i class="fas fa-chevron-left"></i>
+							</a>
+							<a href="" title="" class="active">1</a>
+							<a href="" title="">2</a>
+							<a href="" title="">3</a>
+							<a class="arrow" href="" title="">
+								<i class="fas fa-chevron-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<myfooter></myfooter>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="js/httpvueloader.js"></script>
+	<script src="libs/jquery/jquery.min.js"></script>
+	<script src="libs/bootstrap/popper.min.js"></script>
+	<script src="libs/bootstrap/bootstrap.min.js"></script>
+	<script src="libs/swiper/swiper-bundle.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			components: {
+				myheader: httpVueLoader('vue_components/header.vue'),
+				myfooter: httpVueLoader('vue_components/footer.vue'),
+				"page-title": httpVueLoader('vue_components/page-title.vue'),
+				"article-blog": httpVueLoader('vue_components/article-blog.vue'),
+			},
+			mounted() {
+				$(window).bind('load', function () {
+
+				});
+			},
+		});
+	</script>
+</body>
+
+</html>

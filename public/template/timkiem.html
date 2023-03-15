@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trường thành Đại Việt</title>
+  <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="home">
+  <div id="app">
+    <myheader></myheader>
+    <main>
+
+      <div class="search-page">
+        <div class="container">
+
+          <div class="head">
+            <div class="keyword">
+              Từ khoá “ <span> Ngành dầu khí </span> ”
+            </div>
+
+            <div class="result-count">
+              Tìm được 20 kết quả tìm kiếm
+            </div>
+          </div>
+
+          <div class="list--search-result">
+            <div class="item" v-for="n in 10">
+              <a href="javascript:;" title="" class="title">
+                Bảo vệ Khu nghỉ mát, khách sạn, Khu phức hợp, Nhà hàng, Khu vui chơi giải trí.
+              </a>
+
+              <p class="desc">
+                Để hoàn thành những sứ mệnh của Công ty. Với sự đồng tâm nhất trí, Ban giám đốc cùng
+                toàn thể cán bộ, nhân viên Công ty quyết tâm phấn đấu trở thành Công ty hàng đầu về
+                chất lượng trong ngành cung cấp dịch vụ bảo vệ.
+              </p>
+            </div>
+          </div>
+
+          <div class="paginate-custom justify-content-start">
+            <a class="arrow" href="" title="">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+            <a href="" title="" class="active">1</a>
+            <a href="" title="">2</a>
+            <a href="" title="">3</a>
+            <a class="arrow" href="" title="">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <contactform></contactform>
+    </main>
+    <myfooter></myfooter>
+  </div>
+  <script src="js/vue.js"></script>
+  <script src="js/httpvueloader.js"></script>
+  <script src="libs/jquery/jquery.min.js"></script>
+  <script src="libs/bootstrap/popper.min.js"></script>
+  <script src="libs/bootstrap/bootstrap.min.js"></script>
+  <script src="libs/swiper/swiper-bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      components: {
+        myheader: httpVueLoader('vue_components/header.vue'),
+        myfooter: httpVueLoader('vue_components/footer.vue'),
+        contactform: httpVueLoader('vue_components/contact-form.vue'),
+      },
+      mounted() {
+        $(window).bind('load', function () {
+
+        });
+      },
+    });
+  </script>
+</body>
+
+</html>
