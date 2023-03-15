@@ -1,0 +1,70 @@
+$maincolor: #1d5a99;
+
+// set width cho cột cho flex
+@mixin col-w($width) {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 $width;
+	flex: 0 0 $width;
+	max-width: $width;
+}
+
+@mixin col-img($pb, $of) {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-bottom: $pb;
+	overflow: hidden;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: $of;
+		object-position: center;
+	}
+}
+
+@mixin ratio-img($pad) {
+	position: relative;
+	display: block;
+	overflow: hidden;
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: all 0.3s;
+	}
+
+	&::before {
+		content: '';
+		display: block;
+		padding-bottom: $pad;
+	}
+}
+
+@mixin line-clamp($lc) {
+	display: -webkit-box;
+	-webkit-line-clamp: $lc;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@for $lc from 1 to 5 {
+	.line-clamp-#{$lc} {
+		display: -webkit-box;
+		-webkit-line-clamp: $lc;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+}
+
+@for $mb from 1 to 200 {
+	.margin-bottom-#{$mb} {
+		margin-bottom: #{$mb}px;
+	}
+}

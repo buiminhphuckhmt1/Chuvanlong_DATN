@@ -1,0 +1,32 @@
+@charset "UTF-8";
+@import "../scss/_fonts.scss";
+@import "../scss/bootstrap/bootstrap-grid",
+        "../scss/bootstrap/bootstrap-reboot",
+        "../scss/bootstrap/modal",
+        "../scss/bootstrap/nav",
+        "../scss/bootstrap/close",
+        "../scss/bootstrap/transitions",
+        "../scss/bootstrap/bootstrap-utilities";
+
+@import "../scss/reset", 
+        "../scss/variables", 
+        "../scss/body",
+        "../scss/img",
+        //components
+        "../scss/components/header", 
+        "../scss/components/menu", 
+        "../scss/components/footer",
+        "../scss/components/page-title",
+        "../scss/components/article-blog",
+        "../scss/components/article-horizontal",
+        "../scss/components/contact-form",
+        // pages
+        "../scss/pages/news",
+        "../scss/pages/contact",
+        "../scss/pages/service",
+        "../scss/pages/index",
+        "../scss/pages/news-video",
+        "../scss/pages/timkiem",
+        "../scss/pages/gioithieu";
+        
+
