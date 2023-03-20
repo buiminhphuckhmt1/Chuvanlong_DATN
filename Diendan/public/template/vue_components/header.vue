@@ -1,17 +1,5 @@
 <template>
 	<header class="header">
-		<div class="header-topbar">
-			<div class="container">
-				<div class="row">
-					<div class="topbar-hotline">
-						<a href="tel:0987654321" title="">
-							Hotline: <b>(+84)24 6259 4879</b>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="header-main">
 			<div class="container">
 				<div class="row">
@@ -65,10 +53,9 @@
 				menuList: [
 					'TRANG CHỦ',
 					'GIỚI THIỆU',
-					'DỊCH VỤ',
-					'TIN TỨC',
-					'TUYỂN DỤNG',
-					'LIÊN HỆ'
+					'HỎI ĐÁP',
+					'BLOG',
+					'TÌM ĐỒNG ĐỘI',
 				]
 			};
 		}

@@ -28,32 +28,6 @@
 		}
 	}
 }
-
-.header-topbar {
-	background: linear-gradient(90deg, #9eceff 0%, #ffffff 100%);
-	padding: 10px 0;
-
-	@media (max-width: 767px) {
-		padding: 3px 0;
-	}
-
-	.topbar-hotline {
-		text-align: right;
-		margin-left: auto;
-
-		& > * {
-			font-weight: 400;
-			font-size: 14px;
-			line-height: calc(16 / 14);
-			color: #222222;
-
-			@media (max-width: 767px) {
-				font-size: 12px;
-			}
-		}
-	}
-}
-
 .header-main {
 	background: linear-gradient(to right, #1d5a99 22.92%, #002d5b 100%);
 	padding: 20px 0;
