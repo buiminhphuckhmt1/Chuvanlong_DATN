@@ -142,9 +142,6 @@
 							<li>
 								<a href="javascript:;" title=""> Blog </a>
 							</li>
-							<li>
-								<a href="javascript:;" title=""> Tìm đồng đội </a>
-							</li>
 							<!-- <li>
 								<a href="javascript:;" title=""> Liên hệ </a>
 							</li> -->
