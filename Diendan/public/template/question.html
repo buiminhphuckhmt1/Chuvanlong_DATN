@@ -2,19 +2,19 @@
 <html>
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Trường thành Đại Việt</title>
-	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trường thành Đại Việt</title>
+    <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="home">
-	<div id="app">
-		<myheader></myheader>
-		<main>
-			<div class="question_wrapper">
-                <div class="container">
+    <div id="app">
+        <myheader class="no_fixed"></myheader>
+        <main>
+            <div class="container">
+                <div class="question_wrapper">
                     <div id="mainbar">
                         <div class="title-wrapper">
                             <h1 class="title">
@@ -27,6 +27,7 @@
                             </div>
                         </div>
                         <div class="filter-wrapper">
+                            <div></div>
                             <div class="filter">
                                 <a class="active" href="#">
                                     Yêu thích
@@ -49,15 +50,15 @@
                             <div class="question-mini-list">
                                 <div class="question-mini-item" v-for="item in 10">
                                     <div class="content_left">
-                                        <div class="statistics vote">
+                                        <div class="statistics">
                                             <span>0</span>
                                             <span>votes</span>
                                         </div>
-                                        <div class="statistics  answers">
+                                        <div class="statistics">
                                             <span>0</span>
                                             <span>answers</span>
                                         </div>
-                                        <div class="statistics view">
+                                        <div class="statistics">
                                             <span>2</span>
                                             <span>views</span>
                                         </div>
@@ -80,12 +81,10 @@
                                                 </ul>
                                             </div>
                                             <div class="user_wrapper">
-                                                <div aria-live="polite">
+                                                <div>
                                                     <a href="#" class="avatar_user">
                                                         <div class="img_box">
-                                                            <img src="https://i.stack.imgur.com/G8QuQ.jpg?s=32&amp;g=1"
-                                                                alt="BeniaminoBaggins's user avatar" width="16" ,=""
-                                                                height="16">
+                                                            <img src="">
                                                         </div>
                                                     </a>
                                                 </div>
@@ -97,13 +96,11 @@
                                                         <li class="user_rep">
                                                             <span>10.9k</span>
                                                         </li>
-
                                                     </ul>
                                                 </div>
                                                 <div class="user-card--time">
                                                     <a href="#" class="">
-                                                        asked
-                                                        <span>1 min ago</span>
+                                                        asked<span>1 min ago</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -114,34 +111,72 @@
                         </div>
                     </div>
                     <div id="slidebar">
-
+                        <div class="news-detail-right-container">
+                            <div class="category-news">
+                                <h2>TIN TỨC CÙNG CHUYÊN MỤC</h2>
+                                <div class="list--inner">
+                                    <div class="list-item">
+                                        <div class="item-image">
+                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/cong-ty-truong-thanh-dai-viet-dao-tao-phong-chay-chua-chay-24"
+                                                title="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">
+                                                <img class="img-fluid"
+                                                    src="https://truongthanhdaiviet.bizfly.site/upload/news/original/title-1677489241.png"
+                                                    alt="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">
+                                            </a>
+                                        </div>
+                                        <div class="item-content">
+                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/cong-ty-truong-thanh-dai-viet-dao-tao-phong-chay-chua-chay-24"
+                                                class="item-title"
+                                                title="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">Công
+                                                ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy</a>
+                                        </div>
+                                    </div>
+                                    <div class="list-item">
+                                        <div class="item-image">
+                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/le-tong-ket-nam-2022-cua-cong-ty-truong-thanh-dai-viet-28"
+                                                title="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">
+                                                <img class="img-fluid"
+                                                    src="https://truongthanhdaiviet.bizfly.site/upload/news/original/title-1677552235.png"
+                                                    alt="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">
+                                            </a>
+                                        </div>
+                                        <div class="item-content">
+                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/le-tong-ket-nam-2022-cua-cong-ty-truong-thanh-dai-viet-28"
+                                                class="item-title"
+                                                title="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">Lễ Tổng
+                                                Kết năm 2022 của công ty Trường Thành Đại Việt</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-		</main>
-		<myfooter></myfooter>
-	</div>
-	<script src="js/vue.js"></script>
-	<script src="js/httpvueloader.js"></script>
-	<script src="libs/jquery/jquery.min.js"></script>
-	<script src="libs/bootstrap/popper.min.js"></script>
-	<script src="libs/bootstrap/bootstrap.min.js"></script>
-	<script src="libs/swiper/swiper-bundle.min.js"></script>
-	<script src="js/main.js"></script>
-	<script>
-		var app = new Vue({
-			el: '#app',
-			components: {
-				myheader: httpVueLoader('vue_components/header.vue'),
-				myfooter: httpVueLoader('vue_components/footer.vue'),
-			},
-			mounted() {
-				$(window).bind('load', function () {
+        </main>
+        <myfooter></myfooter>
+    </div>
+    <script src="js/vue.js"></script>
+    <script src="js/httpvueloader.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <script src="libs/bootstrap/popper.min.js"></script>
+    <script src="libs/bootstrap/bootstrap.min.js"></script>
+    <script src="libs/swiper/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            components: {
+                myheader: httpVueLoader('vue_components/header.vue'),
+                myfooter: httpVueLoader('vue_components/footer.vue'),
+            },
+            mounted() {
+                $(window).bind('load', function () {
 
-				});
-			},
-		});
-	</script>
+                });
+            },
+        });
+    </script>
 </body>
 
 </html>

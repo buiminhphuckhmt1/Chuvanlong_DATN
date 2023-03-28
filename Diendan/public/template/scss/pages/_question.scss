@@ -2,11 +2,11 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 80px;
 }
 #mainbar{
-    flex: 0 0 auto;
-    width: 70%;
-    padding: 20px 0 40px 0;
+    flex: 1;
+    padding: 25px 0 40px 0;
     .title-wrapper{
         width: 100%;
         display: inline-flex;
@@ -40,8 +40,29 @@
         width: 100%;
         position: relative;
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         margin-top: 30px;
+        .search_box{
+            display: flex;
+            gap:5px;
+            align-items: center;
+            width: 20%;
+            border-radius: 6px;
+            padding: 5px 10px;
+            border: 2px solid #0054A6;
+            button{
+                border: none;
+                background: none;
+            }
+            input{
+                border: none;
+                width: 100%;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                color: #0054a6;
+            }
+        }
         .filter{
             display: inline-flex;
             background-color: #ffffff;
@@ -52,7 +73,7 @@
                 border-right:1px solid #0054A6;
                 font-weight: 400;
                 font-size: 16px;
-                line-height: 26px;
+                line-height: 28px;
                 color: #0054A6;
                 &:last-child{
                     border: none;
@@ -170,5 +191,61 @@
     }
 }
 #slidebar{
-    flex: 1;
+    flex: 0 0 auto;
+    width: 30%;
+    padding-left: 30px;
+
+}
+#users-wrapper{
+    padding: 50px 20px;
+    display: flex;
+    flex-flow: column;
+        gap:20px;
+    .users-list{
+        display: flex;
+        gap:40px;
+        .user-item{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap:10px;
+            .img_box{
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            .user-details{
+                display: block;
+                a{
+                    font-weight: 400;
+                    color: #0054A6;
+                    font-size: 16px;
+                    line-height: 18px;
+                }
+                .user-location{
+                    font-weight: 400;
+                    color: #000408;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+                .reputation-score{
+                    font-weight: 500;
+                    color: #000408;
+                    font-size: 14px;
+                    line-height: 16px;
+                }
+                .user-tags{
+                    display: flex;
+                    gap:4px;
+                    font-weight: 400;
+                    color: #0054A6;
+                    font-size: 12px;
+                    a{
+                        font-weight: 400;
+                        color: #0054A6;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
 }
