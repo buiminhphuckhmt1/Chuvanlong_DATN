@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Trường thành Đại Việt</title>
+	<link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="home">
+	<div id="app">
+		<myheader></myheader>
+		<main>
+			<div class="question_wrapper">
+                <div class="container">
+                    <div id="mainbar">
+                        <div class="title-wrapper">
+                            <h1 class="title">
+                                Top Câu Hỏi
+                            </h1>
+                            <div class="btn-box">
+                                <a href="#" class="">
+                                    Đặt câu hỏi
+                                </a>
+                            </div>
+                        </div>
+                        <div class="filter-wrapper">
+                            <div class="filter">
+                                <a class="active" href="#">
+                                    Yêu thích
+                                </a>
+                                <a class="" href="#">
+                                    Bountieds
+                                </a>
+                                <a class="" href="#">
+                                    Nổi bật
+                                </a>
+                                <a class="" href="#">
+                                    Tuần
+                                </a>
+                                <a class="" href="#">
+                                    Tháng
+                                </a>
+                            </div>
+                        </div>
+                        <div class="qlist-wrapper">
+                            <div class="question-mini-list">
+                                <div class="question-mini-item" v-for="item in 10">
+                                    <div class="content_left">
+                                        <div class="statistics vote">
+                                            <span>0</span>
+                                            <span>votes</span>
+                                        </div>
+                                        <div class="statistics  answers">
+                                            <span>0</span>
+                                            <span>answers</span>
+                                        </div>
+                                        <div class="statistics view">
+                                            <span>2</span>
+                                            <span>views</span>
+                                        </div>
+                                    </div>
+                                    <div class="content_right">
+                                        <h3 class="question-title">
+                                            <a href="#" class="question_link">
+                                                SliverAppBar with a dynamic height and complex widget for a title,
+                                                padding doesn't work
+                                            </a>
+                                        </h3>
+                                        <div class="s-post-summary--meta">
+                                            <div class="tag_wrapper">
+                                                <ul class="tag_list">
+                                                    <li class="tag_item" v-for="item in 5">
+                                                        <a href="" class="tag_topic">
+                                                            flutter
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="user_wrapper">
+                                                <div aria-live="polite">
+                                                    <a href="#" class="avatar_user">
+                                                        <div class="img_box">
+                                                            <img src="https://i.stack.imgur.com/G8QuQ.jpg?s=32&amp;g=1"
+                                                                alt="BeniaminoBaggins's user avatar" width="16" ,=""
+                                                                height="16">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="user_info">
+                                                    <div class="box_name">
+                                                        <a href="#" class="name">BeniaminoBaggins</a>
+                                                    </div>
+                                                    <ul class="user_awards">
+                                                        <li class="user_rep">
+                                                            <span>10.9k</span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                                <div class="user-card--time">
+                                                    <a href="#" class="">
+                                                        asked
+                                                        <span>1 min ago</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="slidebar">
+
+                    </div>
+                </div>
+            </div>
+		</main>
+		<myfooter></myfooter>
+	</div>
+	<script src="js/vue.js"></script>
+	<script src="js/httpvueloader.js"></script>
+	<script src="libs/jquery/jquery.min.js"></script>
+	<script src="libs/bootstrap/popper.min.js"></script>
+	<script src="libs/bootstrap/bootstrap.min.js"></script>
+	<script src="libs/swiper/swiper-bundle.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			components: {
+				myheader: httpVueLoader('vue_components/header.vue'),
+				myfooter: httpVueLoader('vue_components/footer.vue'),
+			},
+			mounted() {
+				$(window).bind('load', function () {
+
+				});
+			},
+		});
+	</script>
+</body>
+
+</html>

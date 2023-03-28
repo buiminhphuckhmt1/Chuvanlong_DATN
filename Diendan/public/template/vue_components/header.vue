@@ -4,7 +4,7 @@
             <div class="top_nav">
                 <div class="logo">
 					<a href="index.html" class="nav_logo">
-						<img src="images/capacity/logo-header.svg" alt="">
+						<img src="images/logo.svg" alt="">
 					</a>
 				</div>
 				<div class="icon">
@@ -19,7 +19,7 @@
 			<div class="main_nav_drop">
 				<div class="product">
 					<div class="title">
-						<a href="javascrip:;">Sản phẩm</a>
+						<a href="javascrip:;">Hỏi đáp</a>
 					</div>
 					<ul class="product_item">
 						<li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link">{{item.productitem}}</a></li>
@@ -67,38 +67,34 @@
 			return {
 				menuList: [
 					{
+						link:'index.html',
+						navitem:'TRANG CHỦ',
+					},
+					{
 						link:'gioithieu.html',
 						navitem:'GIỚI THIỆU',
 					},
 					{
-						link:'nangluc.html',
-						navitem:'NĂNG LỰC',
-					},
-					{
 						link:'javascrip:;',
-						navitem:'SẢN PHẨM',
+						navitem:'HỎI ĐÁP',
 					},
 					{
 						link:'tintuc.html',
-						navitem:'TIN TỨC',
-					},
-					{
-						link:'contact.html',
-						navitem:'LIÊN HỆ',
+						navitem:'BLOG',
 					},
 				],
 				productList: [
 					{
-						productitem:'Đồng và hợp kim đồng',
+						productitem:'Câu hỏi mới nhất',
 					},
 					{
-						productitem:'Nhôm và hợp kim nhôm',
+						productitem:'Danh sách người dùng',
 					},
 					{
-						productitem:'Thép không gỉ, thép dây',
+						productitem:'Top đóng góp',
 					},
 					{
-						productitem:'Thép đặc biệt',
+						productitem:'Danh sách người dùng',
 					},
 				]
 			};

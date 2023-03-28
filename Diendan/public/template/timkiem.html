@@ -55,8 +55,6 @@
 
         </div>
       </div>
-
-      <contactform></contactform>
     </main>
     <myfooter></myfooter>
   </div>
@@ -73,7 +71,6 @@
       components: {
         myheader: httpVueLoader('vue_components/header.vue'),
         myfooter: httpVueLoader('vue_components/footer.vue'),
-        contactform: httpVueLoader('vue_components/contact-form.vue'),
       },
       mounted() {
         $(window).bind('load', function () {
