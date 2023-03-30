@@ -11,14 +11,14 @@
 
 <body class="home">
     <div id="app">
-        <myheader class="no_fixed"></myheader>
+        <myheader  class="no_fixed"></myheader>
         <main>
             <div class="container">
                 <div class="question_wrapper">
                     <div id="mainbar">
                         <div class="title-wrapper">
                             <h1 class="title">
-                                Danh sách người dùng
+                                Chủ đề trao đổi
                             </h1>
                         </div>
                         <div class="filter-wrapper">
@@ -33,44 +33,34 @@
                             </form>
                             <div class="filter">
                                 <a class="active" href="#">
-                                    Yêu thích
+                                    Phổ biến
                                 </a>
                                 <a class="" href="#">
-                                    Bountieds
+                                    Chủ đề
                                 </a>
                                 <a class="" href="#">
-                                    Nổi bật
-                                </a>
-                                <a class="" href="#">
-                                    Tuần
-                                </a>
-                                <a class="" href="#">
-                                    Tháng
+                                    Mới nhất
                                 </a>
                             </div>
                         </div>
-                        <div id="users-wrapper">
-                          <div class="users-list" v-for="item in 8">
-                            <div class="user-item" v-for="item in 4">
-                                  <div class="user-gravatar48">
-                                      <a href="">
-                                        <div class="img_box">
-                                          <img src="https://i.stack.imgur.com/I4fiW.jpg?s=96&amp;g=1">
+                        <div id="tag-wrapper">
+                            <div class="tag-list" v-for="item in 8">
+                                <div class="tag-item" v-for="item in 4">
+                                        <div class="d-flex jc-space-between ai-center mb12">
+                                            <div class="post-tag">
+                                                <a href="/questions/tagged/javascript" title="" aria-label="show questions tagged 'javascript'" rel="tag" aria-labelledby="tag-javascript-tooltip-container">javascript</a>
+                                            </div>
                                         </div>
-                                      </a>
-                                  </div>
-                                  <div class="user-details">
-                                      <a href="#">VonC</a>
-                                      <div class="user-location">France</div>
-                                      <div class="user-flair">
-                                          <span class="reputation-score" title="reputation this week: 705 total reputation: 1,200,515" dir="ltr">705</span>
-                                      </div>
-                                      <div class="user-tags">
-                                        <a href="#">git</a>, <a href="#">github</a>, <a href="#">docker</a>
-                                    </div>
-                                  </div>
+                        
+                                            <div class="detail">
+                                                For questions about programming in ECMAScript (JavaScript/JS) and its different dialects/implementations (except for ActionScript). Keep in mind that JavaScript is NOT the same as Java! Include all la…
+                                            </div>
+                        
+                                        <div class="description">
+                                                <div class="flex--item">2486512 questions</div>
+                                        </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <div class="paginate-custom">
                           <a class="arrow" href="" title="">
@@ -105,6 +95,8 @@
             components: {
                 myheader: httpVueLoader('vue_components/header.vue'),
                 myfooter: httpVueLoader('vue_components/footer.vue'),
+                "page-title": httpVueLoader('vue_components/page-title.vue'),
+                "article-horizontal": httpVueLoader('vue_components/article-horizontal.vue'),
             },
             mounted() {
                 $(window).bind('load', function () {

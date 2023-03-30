@@ -249,3 +249,22 @@
         }
     }
 }
+#tag-wrapper{
+    padding: 50px 20px;
+    display: flex;
+    flex-flow: column;
+    gap:20px;
+    .tag-list{
+        display: flex;
+        gap:40px;
+        .tag-item{
+            width: 100%;
+            display: flex;
+            flex-flow:column;
+            align-items:start;
+            gap:10px;
+            border-radius: 4px;
+            border:1px solid #666464;
+        }
+    }
+}
