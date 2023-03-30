@@ -271,10 +271,28 @@
                     border-radius: 6px;
                     background-color: #8db8e4;
                     color: #fff;
+                    font-weight: 400;
                     font-size: 14px;
                     line-height: 16px;
                     padding: 4px 8px;
                 }
+            }
+            .detail{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                color: #0054A6;
+                text-align: justify;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .description{
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 16px;
+                color: #666464;
             }
         }
     }
