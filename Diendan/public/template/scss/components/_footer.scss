@@ -33,7 +33,7 @@
 		border-width: 1px 0 1px 0;
 		border-color: #e1e1e1;
 		padding: 10px 0;
-		margin-bottom: 2.5rem;
+		margin-bottom: 20px;
 
 		@media (max-width: 767px) {
 			border-width: 0 0 1px 0;
@@ -117,7 +117,7 @@
 			margin-bottom: 55px;
 
 			.row {
-				margin: 0 -30px;
+				// margin: 0 -30px;
 
 				& > * {
 					padding: 0 30px;
@@ -184,12 +184,12 @@
 	}
 
 	&-copyright {
-		border-top: 1px solid #e1e1e1;
+		// border-top: 1px solid #e1e1e1;
 		text-align: center;
-		padding: 20px 0;
+		padding: 10px 0;
 
 		@media (min-width: 1200px) {
-			padding: 37px 0;
+			padding: 5px 0;
 		}
 
 		& > * {

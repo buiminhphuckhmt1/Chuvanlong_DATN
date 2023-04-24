@@ -93,6 +93,23 @@ ul {
 		padding: 0 24px !important;
 	}
 }
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .container {
+        width:768px
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1099.98px) {
+    .container {
+        width:992px
+    }
+}
+
+@media (min-width: 1100px) {
+    .container {
+        width:1100px
+    }
+}
 /* Global Styles */
 :root {
 	--white: #fff;
@@ -252,12 +269,12 @@ ul {
 	color: var(--black-800);
   }
   
-  .container {
-	width: 100%;
-	max-width: 126.4rem;
-	margin: 0 auto;
-	padding: 0 1.5rem;
-  }
+//   .container {
+// 	width: 100%;
+// 	max-width: 126.4rem;
+// 	margin: 0 auto;
+// 	padding: 0 1.5rem;
+//   }
   
   section {
 	padding: 5rem 0;

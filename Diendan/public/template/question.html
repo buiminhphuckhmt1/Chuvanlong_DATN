@@ -11,140 +11,71 @@
 
 <body class="home">
     <div id="app">
-        <myheader class="no_fixed"></myheader>
+        <myheader></myheader>
         <main>
-            <div class="container">
-                <div class="question_wrapper">
-                    <div id="mainbar">
-                        <div class="title-wrapper">
-                            <h1 class="title">
-                                Top Câu Hỏi
-                            </h1>
-                            <div class="btn-box">
-                                <a href="#" class="">
-                                    Đặt câu hỏi
-                                </a>
-                            </div>
+            <div class="question_wrapper">
+                <div class="container">
+                    <div class="question-content">
+                        <div class="nav_left">
+                            <button class="view_all_question">
+                                Bắt đầu đặt câu hỏi
+                            </button>
+                            <ul class="nav-list">
+                                <li>
+                                    <i aria-hidden="true" class="icon far fa-comments Button-icon"></i>
+                                    <a href="">Tất cả câu hỏi</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">Thẻ</a>
+                                </li>
+                                <li>
+                                    <i></i>
+                                    <a href="">Thẻ</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="filter-wrapper">
-                            <div></div>
-                            <div class="filter">
-                                <a class="active" href="#">
-                                    Yêu thích
-                                </a>
-                                <a class="" href="#">
-                                    Bountieds
-                                </a>
-                                <a class="" href="#">
-                                    Nổi bật
-                                </a>
-                                <a class="" href="#">
-                                    Tuần
-                                </a>
-                                <a class="" href="#">
-                                    Tháng
-                                </a>
+                        <div class="list-question-right">
+                            <div class="fittel">
+                                <button class="btn-fitter">
+                                    Lọc
+                                </button>
+                                <ul>
+                                    <li>
+                                        <a href="">Mới Nhất</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Cũ Nhất</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Hot Nhất</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                        <div class="qlist-wrapper">
-                            <div class="question-mini-list">
-                                <div class="question-mini-item" v-for="item in 10">
-                                    <div class="content_left">
-                                        <div class="statistics">
-                                            <span>0</span>
-                                            <span>votes</span>
-                                        </div>
-                                        <div class="statistics">
-                                            <span>0</span>
-                                            <span>answers</span>
-                                        </div>
-                                        <div class="statistics">
-                                            <span>2</span>
-                                            <span>views</span>
-                                        </div>
-                                    </div>
-                                    <div class="content_right">
-                                        <h3 class="question-title">
-                                            <a href="#" class="question_link">
-                                                SliverAppBar with a dynamic height and complex widget for a title,
-                                                padding doesn't work
+                            <div class="list_question" v-for="n in 10">
+                                <div class="question_item">
+                                    <div class="question_item-wrapper">
+                                        <span class=""><i class="icon fas fa-check "></i></span>
+                                        <div class="">
+                                            <a class="" href="/u/elise_boyer" title="">
+                                                <span>E</span>
                                             </a>
-                                        </h3>
-                                        <div class="s-post-summary--meta">
-                                            <div class="tag_wrapper">
-                                                <ul class="tag_list">
-                                                    <li class="tag_item" v-for="item in 5">
-                                                        <a href="" class="tag_topic">
-                                                            flutter
-                                                        </a>
+                                            <ul class="DiscussionListItem-badges badges"></ul>
+                                            <a href="/d/41-hic-quo" class="DiscussionListItem-main">
+                                                <h2 class="DiscussionListItem-title">Hic quo.</h2>
+                                                <ul class="">                                                        
+                                                    <li class="">
+                                                        <span> 
+                                                            <span class="username">elise_boyer</span>
+                                                            started 
+                                                                    <time>16 hours ago</time>
+                                                        </span>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                            <div class="user_wrapper">
-                                                <div>
-                                                    <a href="#" class="avatar_user">
-                                                        <div class="img_box">
-                                                            <img src="">
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="user_info">
-                                                    <div class="box_name">
-                                                        <a href="#" class="name">BeniaminoBaggins</a>
-                                                    </div>
-                                                    <ul class="user_awards">
-                                                        <li class="user_rep">
-                                                            <span>10.9k</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="user-card--time">
-                                                    <a href="#" class="">
-                                                        asked<span>1 min ago</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="slidebar">
-                        <div class="news-detail-right-container">
-                            <div class="category-news">
-                                <h2>TIN TỨC CÙNG CHUYÊN MỤC</h2>
-                                <div class="list--inner">
-                                    <div class="list-item">
-                                        <div class="item-image">
-                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/cong-ty-truong-thanh-dai-viet-dao-tao-phong-chay-chua-chay-24"
-                                                title="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">
-                                                <img class="img-fluid"
-                                                    src="https://truongthanhdaiviet.bizfly.site/upload/news/original/title-1677489241.png"
-                                                    alt="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">
                                             </a>
-                                        </div>
-                                        <div class="item-content">
-                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/cong-ty-truong-thanh-dai-viet-dao-tao-phong-chay-chua-chay-24"
-                                                class="item-title"
-                                                title="Công ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy">Công
-                                                ty Trường Thành Đại Việt đào tạo phòng cháy chữa cháy</a>
-                                        </div>
-                                    </div>
-                                    <div class="list-item">
-                                        <div class="item-image">
-                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/le-tong-ket-nam-2022-cua-cong-ty-truong-thanh-dai-viet-28"
-                                                title="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">
-                                                <img class="img-fluid"
-                                                    src="https://truongthanhdaiviet.bizfly.site/upload/news/original/title-1677552235.png"
-                                                    alt="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">
-                                            </a>
-                                        </div>
-                                        <div class="item-content">
-                                            <a href="https://truongthanhdaiviet.bizfly.site/tin-tuc/le-tong-ket-nam-2022-cua-cong-ty-truong-thanh-dai-viet-28"
-                                                class="item-title"
-                                                title="Lễ Tổng Kết năm 2022 của công ty Trường Thành Đại Việt">Lễ Tổng
-                                                Kết năm 2022 của công ty Trường Thành Đại Việt</a>
+                                            <button class="">
+                                                <span>2.3K</span>
+                                                <span class="">2345unread replies. Mark unread replies as read.</span></button>
                                         </div>
                                     </div>
                                 </div>

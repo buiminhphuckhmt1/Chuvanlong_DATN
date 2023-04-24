@@ -71,8 +71,8 @@ function dropmenu(){
 	$(".search").on("click", function() {
 		$(".search_drop").toggleClass("search_open");
 	});
-	$(".ic-nav").on("click", function() {
-		$(".language-drop").toggleClass("d-none");
+	$(".Dropdown-toggle").on("click", function() {
+		$(".Dropdown-menu").toggleClass("dropdown-menu");
 	});
 	// $(".nav_link").on("click", function() {
 	// 	$(".product_drop").toggleClass("menusub_open");

@@ -122,7 +122,7 @@
 				</ul>
 			</div>
 
-			<div class="footer-infolist">
+			<!-- <div class="footer-infolist">
 				<div class="row">
 					<div class="col-lg-4 col-12 mb-4 mb-lg-0">
 						<div class="title-cate">
@@ -142,9 +142,9 @@
 							<li>
 								<a href="javascript:;" title=""> Blog </a>
 							</li>
-							<!-- <li>
+							 <li>
 								<a href="javascript:;" title=""> Liên hệ </a>
-							</li> -->
+							</li> 
 						</ul>
 					</div>
 
@@ -206,7 +206,7 @@
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="footer-copyright">
 				<p>© 2022 Bản quyền thuộc về Chu Van Long</p>

@@ -2,6 +2,34 @@
 	<header class="header">
         <nav class="navbar">
             <div class="top_nav">
+				<div id="header-secondary" class="Header-secondary">
+				<ul class="Header-controls">
+					<li class="item-session">
+						<div class="ButtonGroup Dropdown ">
+							<button class="Dropdown-toggle Button Button--user Button--flat">
+								<span class="Avatar " loading="lazy">L</span> 
+								<span class="Button-label">
+									<span class="username">longcv</span>
+								</span>
+							</button>
+							<ul class="Dropdown-menu">
+								<li class="item-profile">
+									<a class="hasIcon" href="/u/47" active="false">
+										<i class="icon fas fa-user Button-icon"></i>
+										<span class="Button-label">Profile</span>
+									</a>
+								</li>
+								<li class="item-logOut">
+									<button class="hasIcon" type="button">
+										<i  class="icon fas fa-sign-out-alt Button-icon"></i>
+										<span class="Button-label">Log Out</span>
+									</button>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				</div>
                 <div class="logo">
 					<a href="index.html" class="nav_logo">
 						<img src="images/logo.svg" alt="">
@@ -36,7 +64,7 @@
 					</ul>
 					<div class="search">
 						<a href="javascrip:;">
-							<img src="images/capacity/search-icon.png" alt="">
+							<img src="images/search.svg" alt="">
 						</a>
 					</div>
 				</div>
@@ -50,7 +78,7 @@
 						<div class="input_box">
 							<input class="input-search" type="text" name="" id="" placeholder="Nhập từ khóa tìm kiếm...">
 							<button class="btn-search">
-								<img src="images/capacity/search.svg" alt="">
+								<img src="images/search.svg" alt="">
 							</button>
 						</div>
 					</div>
@@ -78,10 +106,6 @@
 						link:'javascrip:;',
 						navitem:'HỎI ĐÁP',
 					},
-					{
-						link:'tintuc.html',
-						navitem:'BLOG',
-					},
 				],
 				productList: [
 					{
@@ -92,9 +116,6 @@
 					},
 					{
 						productitem:'Top đóng góp',
-					},
-					{
-						productitem:'Danh sách người dùng',
 					},
 				]
 			};
