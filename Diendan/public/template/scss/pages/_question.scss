@@ -5,6 +5,9 @@
         gap:60px;
         padding: 30px 0;
     }
+    .question-left{
+        flex:1;
+    }
     .nav_left{
         position: sticky;
         top:90px;
@@ -46,6 +49,8 @@
         }
     }
     .list-question-right{
+        flex:0 0 auto;
+        width: 80%;
         .fittel{
             position: relative;
             margin-bottom: 20px;
@@ -118,6 +123,7 @@
             }
             .item_qus{
                 display: flex;
+                gap:10px;
                 align-items: center;
                 min-width: 100%;
                 .user-img-icon{
@@ -140,8 +146,153 @@
                 .number-rep{
                     margin-left: auto;
                     float: right;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 1.3;
                 }
             }
         }
+    }
+}
+.Dropdown-menu-flow{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    min-width: 100px;
+    padding: 8px 10px;
+    margin: 7px 0;
+    background: #302d2d;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px #1b1a1a;
+    list-style: none;
+    text-align: left;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.DiscussionListItem-title{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #1d5a99;
+}
+.username{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #394047;
+}
+.drop-flow{
+    width: 36px;
+    height: 36px;
+    border: none;
+    text-align: center;
+    padding: 8px 0;
+    background: none;
+    border-radius: 100%;
+    &:hover{
+        background: #394047;
+    }
+}
+.Button--icon .Button-icon {
+    font-size: 16px;
+    vertical-align: -1px;
+    margin: 0;
+    text-align: center;
+}
+.hasIcon{
+    border: none;
+    background: none;
+    color: #FFFFFF;
+}
+.inf-ques{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #394047;
+}
+.itemCount1{
+    position: relative;
+}
+.drop-down-flow{
+    display: block;
+}
+.page-title{
+    background-color: #5387e7;
+    padding: 40px 0;
+    .title{
+        display: block;
+        text-align: center;
+        h2{
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 1.5;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 0;
+        }
+    }
+}
+.question-detail-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    .ques-d-left{
+        flex:0 0 auto;
+        width: 75%;
+        .item-post{
+            display: flex;
+            gap:20px;
+            padding: 20px;
+            border-bottom: 1px solid #252424;
+            &:last-child{
+                border: none;
+            }
+            .user-img-icon{
+                span{
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: content-box;
+                    color: #fff;
+                    vertical-align: top;
+                    background-color: #d8a0e5;
+                    font-weight: normal;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 100%;
+                }
+            }
+            .item-post-content{
+                .inf-user-post{
+                    span{
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 1.3;
+                        letter-spacing: -0.01em;
+                        color: #394047;
+                    }
+                    .use{
+                        font-weight:500 ;
+                        font-size: 16px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .ques-d-right{
+        flex:1;
     }
 }

@@ -74,8 +74,11 @@ function dropmenu(){
 	$(".Dropdown-toggle").on("click", function() {
 		$(".Dropdown-menu").toggleClass("dropdown-menu");
 	});
-	$(".btn-fitter").on("click", function() {
+	$(".btn-fitter").on("click", function(){
 		$(".drop-down-fittel").toggleClass("drop-fittel");
+	});
+	$(".drop-flow").on("click", function(){
+		$(".Dropdown-menu-flow").toggleClass("drop-down-flow");
 	});
 }
 function clickSiblingsToggle(paramItem) {
