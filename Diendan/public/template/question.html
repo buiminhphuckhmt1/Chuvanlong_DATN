@@ -16,31 +16,38 @@
             <div class="question_wrapper">
                 <div class="container">
                     <div class="question-content">
-                        <div class="nav_left">
-                            <button class="view_all_question">
-                                Bắt đầu đặt câu hỏi
-                            </button>
-                            <ul class="nav-list">
-                                <li>
-                                    <i aria-hidden="true" class="icon far fa-comments Button-icon"></i>
-                                    <a href="">Tất cả câu hỏi</a>
-                                </li>
-                                <li>
-                                    <i></i>
-                                    <a href="">Thẻ</a>
-                                </li>
-                                <li>
-                                    <i></i>
-                                    <a href="">Thẻ</a>
-                                </li>
-                            </ul>
+                        <div class="question-left">
+                            <div class="nav_left">
+                                <button class="view_all_question">
+                                    Bắt đầu đặt câu hỏi
+                                </button>
+                                <ul class="nav-list">
+                                    <li>
+                                        <i aria-hidden="true" class="icon far fa-comments Button-icon"></i>
+                                        <a href="">Tất cả câu hỏi</a>
+                                    </li>
+                                    <li>
+                                        <i aria-hidden="true" class="icon fas fa-star Button-icon"></i>
+                                        <a href="">Đang theo dõi</a>
+                                    </li>
+                                    <li>
+                                        <i aria-hidden="true" class="icon fas fa-th-large Button-icon"></i>
+                                        <a href="">Thẻ</a>
+                                    </li>
+                                    <li>
+                                        <svg width='16' height='12' style='background: #252424'></svg>
+                                        <a href="">PHP</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="list-question-right">
                             <div class="fittel">
                                 <button class="btn-fitter">
                                     Lọc
+                                    <i aria-hidden="true" class="icon fas fa-caret-down Button-caret"></i>
                                 </button>
-                                <ul>
+                                <ul class="drop-down-fittel">
                                     <li>
                                         <a href="">Mới Nhất</a>
                                     </li>
@@ -55,9 +62,8 @@
                             <div class="list_question" v-for="n in 10">
                                 <div class="question_item">
                                     <div class="question_item-wrapper">
-                                        <span class=""><i class="icon fas fa-check "></i></span>
-                                        <div class="">
-                                            <a class="" href="/u/elise_boyer" title="">
+                                        <div class="item_qus">
+                                            <a class="user-img-icon" href="/u/elise_boyer" title="">
                                                 <span>E</span>
                                             </a>
                                             <ul class="DiscussionListItem-badges badges"></ul>
@@ -73,9 +79,7 @@
                                                     </li>
                                                 </ul>
                                             </a>
-                                            <button class="">
-                                                <span>2.3K</span>
-                                                <span class="">2345unread replies. Mark unread replies as read.</span></button>
+                                            <span class="number-rep">2.3K</span>
                                         </div>
                                     </div>
                                 </div>

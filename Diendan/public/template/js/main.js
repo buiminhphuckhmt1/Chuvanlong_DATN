@@ -74,9 +74,9 @@ function dropmenu(){
 	$(".Dropdown-toggle").on("click", function() {
 		$(".Dropdown-menu").toggleClass("dropdown-menu");
 	});
-	// $(".nav_link").on("click", function() {
-	// 	$(".product_drop").toggleClass("menusub_open");
-	// });
+	$(".btn-fitter").on("click", function() {
+		$(".drop-down-fittel").toggleClass("drop-fittel");
+	});
 }
 function clickSiblingsToggle(paramItem) {
 	let $item = $(paramItem);

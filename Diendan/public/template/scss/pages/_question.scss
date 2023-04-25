@@ -6,6 +6,142 @@
         padding: 30px 0;
     }
     .nav_left{
+        position: sticky;
+        top:90px;
         display: block;
+        .view_all_question{
+            background-color: #0b0a0a;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding:5px 10px;
+            &:hover{
+                background-color: #252424;
+            }
+        }
+        .nav-list{
+            li{
+                margin: 20px 0;
+                align-items: center;
+                i{
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 400;
+                    width: 16px;
+                }
+                a{
+                    color: #0b0a0a;
+                    font-size: 14px;
+                    line-height: 16px;
+                    font-weight: 400;
+                    padding-left:10px;
+                }
+                .icon-tag{
+                    width: 0;
+                    height: 0;
+                    padding: 16px;
+                    border-radius: 6px;
+                    background: #252424;
+                }
+            }
+        }
+    }
+    .list-question-right{
+        .fittel{
+            position: relative;
+            margin-bottom: 20px;
+            .btn-fitter{
+                background-color: #252424;
+                color: #ffffff;
+                border: none;
+                border-radius: 6px;
+                padding:5px 10px;
+                align-items: center;
+                &:hover{
+                    background-color: #0b0a0a;
+                }
+                .icon{
+                    margin-left: 5px;
+                }
+            }
+            .drop-down-fittel{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1;
+                display: none;
+                min-width: 100px;
+                padding: 8px 10px;
+                margin: 7px 0;
+                background: #302d2d;
+                border-radius: 6px;
+                box-shadow: 0 2px 6px #1b1a1a;
+                list-style: none;
+                text-align: left;
+                color: #FFFFFF;
+                font-size: 13px;
+                line-height: 1.5;
+                li{
+                    margin-bottom:8px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                    a{
+                        color: #ffffff;
+                        font-size: 14px;
+                        line-height: 16px;
+                        font-weight: 400;                     
+                    }
+                }
+                
+            }
+            .drop-fittel{
+                display: block !important;
+            }
+        }
+        .list_question{
+            margin-bottom: 15px;
+            width: 100%;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .question_item{
+                width: 100%;
+            }
+            .question_item-wrapper{
+                padding: 15px;
+                border-radius: 6px;
+                width: 100%;
+                &:hover{
+                    background-color: #979292;
+                    transition: all 0.3s linear;
+                }
+            }
+            .item_qus{
+                display: flex;
+                align-items: center;
+                min-width: 100%;
+                .user-img-icon{
+                    span{
+                        display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: content-box;
+                    color: #fff;
+                    vertical-align: top;
+                    background-color: #d8a0e5;
+                    font-weight: normal;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 100%;
+                    font-size: 20px;
+                    margin: -2px 5px -2px -6px;
+                    }
+                }
+                .number-rep{
+                    margin-left: auto;
+                    float: right;
+                }
+            }
+        }
     }
 }
