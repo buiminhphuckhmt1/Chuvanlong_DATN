@@ -108,8 +108,13 @@ Route::get("frontend",function(){
     return redirect(url("frontend/home"));
 });
 //register class HomeController
-use App\Http\Controllers\Frontend\HomeController;
-Route::get("frontend/home",[HomeController::class,"index"]);
-Route::get('frontend/home',function(){
+use App\Http\Controllers\Frontend\HomeftController;
+Route::get("frontend/home",[HomeftController::class,"index"])->Middleware("check_login");
+Route::get("frontend/follower",[HomeftController::class,"follow"]);
+Route::get("frontend/tag/{id}",[HomeftController::class,"tag"]);
+Route::get("frontend/old",[HomeftController::class,"fitterold"]);
+Route::get("frontend/new",[HomeftController::class,"fitternew"]);
+use App\Http\Controllers\Frontend\TagController;
+Route::get('admin/home',function(){
     echo "<h1>Done</h1>";
 });

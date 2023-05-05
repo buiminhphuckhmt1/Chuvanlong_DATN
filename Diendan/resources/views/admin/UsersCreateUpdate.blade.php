@@ -44,7 +44,7 @@
 		            </div>
 				</div>
 				<div class="form-group d-flex justify-content-center">
-					<img src="{{asset('upload/user/'.$record->avatar)}}" alt="" id="cimg" class="img-fluid img-thumbnail">
+					<img src="{{asset('upload/user/')}}" alt="" id="cimg" class="img-fluid img-thumbnail">
 				</div>
                 <div class="form-group d-flex">
                     <div class="col-md-10">

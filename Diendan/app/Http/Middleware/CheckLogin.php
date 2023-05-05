@@ -19,7 +19,7 @@ class CheckLogin
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check() == false)
-            return redirect(url('login'));
+            return redirect(url('backend/login'));
         return $next($request);
     }
 }
