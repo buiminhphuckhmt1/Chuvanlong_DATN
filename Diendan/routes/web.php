@@ -109,12 +109,29 @@ Route::get("frontend",function(){
 });
 //register class HomeController
 use App\Http\Controllers\Frontend\HomeftController;
-Route::get("frontend/home",[HomeftController::class,"index"])->Middleware("check_login");
+Route::get("frontend/home",[HomeftController::class,"index"])->Middleware("_login");
 Route::get("frontend/follower",[HomeftController::class,"follow"]);
 Route::get("frontend/tag/{id}",[HomeftController::class,"tag"]);
 Route::get("frontend/old",[HomeftController::class,"fitterold"]);
 Route::get("frontend/new",[HomeftController::class,"fitternew"]);
-use App\Http\Controllers\Frontend\TagController;
+Route::get("frontend/question/{id}",[HomeftController::class,"viewquestion"]);
+use App\Http\Controllers\Frontend\PostsftController;
+//Read
+//Route::get("frontend/posts",[PostsftController::class,"index"])->Middleware("_login");
+//Update Get
+//Route::get("backend/posts/update/{id}",[PostsController::class,"update"])->Middleware("_login");
+//Update Post
+//Route::post("backend/posts/updatePost/{id}",[PostsController::class,"updatePost"])->Middleware("_login");
+//Create Get
+Route::get("frontend/posts/create",[PostsftController::class,"create"])->Middleware("_login");
+//Create Post
+Route::post("frontend/posts/createPost",[PostsftController::class,"createPost"])->Middleware("_login");
+//Delete
+//Route::get("backend/posts/delete/{id}",[PostsController::class,"delete"])->Middleware("_login");
+//---
+Route::get("frontend/login",function(){
+    return View::make("frontend.Login");
+});
 Route::get('admin/home',function(){
     echo "<h1>Done</h1>";
 });

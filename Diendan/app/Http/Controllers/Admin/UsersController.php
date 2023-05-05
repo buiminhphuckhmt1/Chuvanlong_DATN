@@ -42,12 +42,9 @@ class UsersController extends Controller
         $type =request("type");
         $username =request("username");
         $password = request("password");
-        // if($_FILES['avatar']['name'] != ""){
-        //     //lay ten anh
-        //     $avatar = time()."_".$_FILES['avatar']['name'];
-        //     //upload anh
-        //     move_uploaded_file($_FILES['avatar']['tmp_name'], "../assets/upload/products/$avatar");
-        // }
+        // $file=request("avatar");
+        // $file_name=$file->getClientoriginalName();
+        // $file->move(public_path('upload/user'), $file_name);
         //update name
         DB::table("users")->where("id","=",$id)->update(["avatar"=>$avatar,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
         //nếu password không rỗng thì update password

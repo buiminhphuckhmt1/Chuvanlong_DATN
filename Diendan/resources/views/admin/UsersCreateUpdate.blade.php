@@ -40,7 +40,7 @@
 				<div class="form-group">
 					<label for="" class="control-label">Ảnh đại diện</label>
 					<div class="custom-file">
-		              <input type="file" class="custom-file-input" id="customFile" name="avatar" onchange="displayImg(this,$(this))" accept="image/png, image/jpeg">
+		              <input type="file" class="custom-file-input" id="customFile" name="avatar" >
 		            </div>
 				</div>
 				<div class="form-group d-flex justify-content-center">

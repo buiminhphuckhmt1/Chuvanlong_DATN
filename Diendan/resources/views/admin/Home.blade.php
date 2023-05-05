@@ -9,7 +9,7 @@
 			<div class="container-fluid">
 				<h1>Welcome, Adminstrator Admin!</h1>
 					<hr>
-					<div class="row">
+					<!-- <div class="row">
 					<div class="col-12 col-sm-3 col-md-3">
 						<div class="info-box">
 							<span class="info-box-icon bg-gradient-navy elevation-1"><i class="fas fa-th-list"></i></span>
@@ -18,11 +18,8 @@
 							<span class="info-box-number">
 								4                      </span>
 							</div>
-							<!-- /.info-box-content -->
 						</div>
-						<!-- /.info-box -->
 						</div>
-						<!-- /.col -->
 						<div class="col-12 col-sm-3 col-md-3">
 						<div class="info-box">
 							<span class="info-box-icon bg-gradient-light border elevation-1"><i class="fas fa-users-cog"></i></span>
@@ -31,11 +28,8 @@
 							<span class="info-box-number">
 								3                      </span>
 							</div>
-							<!-- /.info-box-content -->
 						</div>
-						<!-- /.info-box -->
 						</div>
-						<!-- /.col -->
 						<div class="col-12 col-sm-3 col-md-3">
 						<div class="info-box">
 							<span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-blog"></i></span>
@@ -45,11 +39,8 @@
 							<span class="info-box-number">
 								3                      </span>
 							</div>
-							<!-- /.info-box-content -->
 						</div>
-						<!-- /.info-box -->
 						</div>
-						<!-- /.col -->
 						<div class="col-12 col-sm-3 col-md-3">
 						<div class="info-box">
 							<span class="info-box-icon bg-gradient-secondary elevation-1"><i class="fas fa-blog"></i></span>
@@ -59,9 +50,8 @@
 							<span class="info-box-number">
 								0                      </span>
 							</div>
-							<!-- /.info-box-content -->
+
 						</div>
-						<!-- /.info-box -->
 						</div>
 					</div>
 					<div class="container">
@@ -83,7 +73,7 @@
 							<span class="sr-only">Next</span>
 						</a>
 					</div>
-					</div>
+					</div> -->
 			</div>
 			</section>
 		</div>

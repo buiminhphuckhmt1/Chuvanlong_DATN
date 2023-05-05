@@ -5,9 +5,9 @@
                         <div class="question-content">
                             <div class="question-left">
                                 <div class="nav_left">
-                                    <button class="view_all_question">
+                                    <a href="{{ url('frontend/posts/create')}}" class="view_all_question">
                                         Bắt đầu đặt câu hỏi
-                                    </button>
+                                    </a>
                                     <ul class="nav-list">
                                         <li>
                                             <i aria-hidden="true" class="icon far fa-comments Button-icon"></i>
@@ -53,11 +53,11 @@
                                     <div class="question_item">
                                         <div class="question_item-wrapper">
                                             <div class="item_qus">
-                                                <a class="user-img-icon" href="/u/elise_boyer" title="">
+                                                <a class="user-img-icon" href="" title="{{ url('frontend/tag/'.$record->id) }}">
                                                     <span>E</span>
                                                 </a>
                                                 <ul class="DiscussionListItem-badges badges"></ul>
-                                                <a href="/d/41-hic-quo" class="DiscussionListItem-main">
+                                                <a href="{{ url('frontend/question/'.$row->id) }}" class="DiscussionListItem-main">
                                                     <h2 class="DiscussionListItem-title">{{ $row->title }}</h2>
                                                     <ul class="">
                                                         <li class="">

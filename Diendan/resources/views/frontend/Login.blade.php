@@ -142,9 +142,9 @@
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label for="Password" class="form-label">Mật khẩu</label>
-                    <a href="../assets/admin/layout2/html/auth-forgot-password-basic.html">
+                    <!-- <a href="../assets/admin/layout2/html/auth-forgot-password-basic.html">
                       <small>Quên mật khẩu?</small>
-                    </a>
+                    </a> -->
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -159,10 +159,10 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <div class="form-check">
+                  <!-- <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember-me" />
                     <label class="form-check-label" for="remember-me"> Ghi nhớ tôi </label>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Đăng nhập</button>

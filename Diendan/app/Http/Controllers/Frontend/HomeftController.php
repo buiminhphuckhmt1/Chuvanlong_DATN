@@ -34,6 +34,14 @@ class HomeftController extends Controller
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
+    public function viewquestion($id){
+        //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào update)
+        $action = url("frontend/question/$id");
+        //lấy một bản ghi -> sử dụng hàm first()
+        $record = DB::table("post_list")->where("id","=",$id)->first();
+        //gọi view, truyền dữ liệu ra view
+        return view("frontend.Questiondetail",["record"=>$record,"action"=>$action]);
+    }
     //Update Get
     public function update($id){
         //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào update)

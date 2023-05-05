@@ -9,9 +9,14 @@ lang="en"
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trường thành Đại Việt</title>
+    <title>FAQFORUM</title>
+    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/img-logo-header.png')}}">
     <link rel="stylesheet" href="{{ asset('template/libs/swiper/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/admin/layout2/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script type="text/javascript" src="{{ asset('admin/assets/ckeditor/ckeditor.js') }}"></script>
 </head>
 <body class="home">
     <div id="app">
@@ -48,7 +53,7 @@ lang="en"
                     </div>
                     <div class="logo">
                         <a href="index.html" class="nav_logo">
-                            <img src="images/logo.svg" alt="">
+                            <img src="{{ asset('template/images/logo.svg')}}" alt="">
                         </a>
                     </div>
                     <div class="icon">
@@ -63,16 +68,23 @@ lang="en"
                 <div class="main_nav_drop">
                     <div class="product">
                         <div class="title">
-                            <a href="javascrip:;">Hỏi đáp</a>
+                            <a href="javascrip:;">Bài thảo luận</a>
                         </div>
                         <ul class="product_item">
-                            <li class="list_item" ><a href="javascrip:;" class="product_link"></a></li>
+                            <li class="list_item" ><a href="{{ url('frontend/new')}}" class="product_link">Bài viết mới nhất </a></li>
+                            <li class="list_item" ><a href="{{ url('frontend/follower')}}" class="product_link">Bài viết đang theo dõi</a></li>
                         </ul>
                     </div>
                     <div class="nav">
                         <ul class="nav_item">
                             <li class="list_item" v-for="item in menuList">
-                                <a :href="item.link" class="nav_link"></a>
+                                <a href="{{ url('frontend/home')}}" class="nav_link"> Trang chủ</a>
+                                <ul class="product_drop">
+                                    <li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link"></a></li>
+                                </ul>
+                            </li>
+                            <li class="list_item" v-for="item in menuList">
+                                <a href="item.link" class="nav_link"> Thêm bài viết</a>
                                 <ul class="product_drop">
                                     <li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link"></a></li>
                                 </ul>
@@ -80,7 +92,7 @@ lang="en"
                         </ul>
                         <div class="search">
                             <a href="javascrip:;">
-                                <img src="images/search.svg" alt="">
+                                <img src="{{ asset('template/images/search.svg')}}" alt="">
                             </a>
                         </div>
                     </div>

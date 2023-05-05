@@ -35,57 +35,35 @@ class PostsController extends Controller
         $action = url("backend/posts/updatePost/$id");
         //lấy một bản ghi -> sử dụng hàm first()
         $record = DB::table("post_list")->where("id","=",$id)->first();
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsCreateUpdate",["record"=>$record,"action"=>$action]);
+        return view("admin.PostsCreateUpdate",["record"=>$record,"action"=>$action,"datacate"=>$datacate]);
     }
     //Update Post
     public function updatePost($id){
-        $avatar =request("avatar");
-        $firstname =request("firstname");
-        $middlename =request("middlename");
-        $lastname =request("lastname");
-        $type =request("type");
-        $username =request("username");
-        $password = request("password");
+        $title =request("title");
+        $category_id =request("category_id");
+        $content =request("content");
+        $status =request("status");
         //update name
-        DB::table("post_list")->where("id","=",$id)->update(["avatar"=>$avatar],["firstname"=>$firstname],["middlename"=>$middlename],["lastname"=>$lastname],["type"=>$type],["username"=>$username]);
-        //nếu password không rỗng thì update password
-        if($password != ""){
-            //mã hóa password
-            $password = Hash::make($password);
-            //update password
-            DB::table("post_list")->where("id","=",$id)->update(["password"=>$password]);
-        }
-        //di chuyển đến url khác
+        DB::table("post_list")->where("id","=",$id)->update(["title"=>$title,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
         return redirect(url("backend/posts"));
     }
     //Create Get
     public function create(){
         //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào create)
         $action = url("backend/posts/createPost");
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsCreateUpdate",["action"=>$action]);
+        return view("admin.PostsCreateUpdate",["action"=>$action,"datacate"=>$datacate]);
     }
     //Create Post
     public function createPost(){
-        $avatar =request("avatar");
-        $firstname =request("firstnamename");
-        $middlename =request("middlename");
-        $lastname =request("lastname");
-        $type =request("type");
-        $username =request("username");
-        $password = request("password");
-        //mã hóa password
-        $password = Hash::make($password);
-        //kiểm tra xem email đã tồn tại trong csdl chưa, nếu chưa tồn tại thì mới cho update
-        //Count() Đếm số bản ghi
-        $check = DB::table("post_list")->where("username","=",$username)->Count();
-        if($check == 0){
-            //update
-            DB::table("post_list")->insert(["avatar"=>$avatar],["firstnamename"=>$firstname],["middlename"=>$middlename],["lastname"=>$lastname],["username"=>$username],["type"=>$type],["password"=>$password]);
-        }else
-            return redirect(url("backend/posts/create?notify=email-exists"));
-        //di chuyển đến url khác
+        $title =request("title");
+        $category_id=request("category_id");
+        $content =request("content");
+        $status =request("status");
+        DB::table("post_list")->insert(["title"=>$title,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
         return redirect(url("backend/posts"));
     }
     //Delete

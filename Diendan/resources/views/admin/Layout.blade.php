@@ -14,12 +14,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Myadmin</title>
+    <title>FAQFORUM</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('admin/assets/admin/layout3/images/icon.jpg') }}">
+    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/img-logo-header.png')}}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,10 +66,10 @@
           <div class="app-brand demo">
             <a href="index.php" class="app-brand-link">
               <span class="app-brand-logo demo">
-                  <img src="{{ asset('admin/assets/admin/layout3/images/icon.jpg') }}">
+                  <!-- <img src="{{ asset('admin/assets/admin/layout3/images/icon.jpg') }}"> -->
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">admin</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: uppercase;">ADMIN</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -81,12 +81,12 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="{{ url('backend/home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
-            </li>
+            </li> -->
 
             <!-- Layouts -->
             <li class="menu-item">
@@ -152,12 +152,12 @@
                 <div data-i18n="Tables">Categories</div>
               </a>
             </li>
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="index.php?controller=managerlayout" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table1"></i>
                 <div data-i18n="Tables">Management layout</div>
               </a>
-            </li>
+            </li> -->
             <!-- Misc -->
             <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
             <li class="menu-item">
