@@ -101,7 +101,7 @@ Route::post("frontend/login",function(){
 //url: public/logout
 Route::get('frontend/logout',function(){
     Auth::logout();//Auth la doi tuong co san cua laravel
-    return redirect(url("frontend/login"));
+    return redirect(url("frontend/home"));
 });
 //url: public/admin
 Route::get("frontend",function(){
@@ -109,7 +109,7 @@ Route::get("frontend",function(){
 });
 //register class HomeController
 use App\Http\Controllers\Frontend\HomeftController;
-Route::get("frontend/home",[HomeftController::class,"index"])->Middleware("_login");
+Route::get("frontend/home",[HomeftController::class,"index"]);
 Route::get("frontend/follower",[HomeftController::class,"follow"]);
 Route::get("frontend/tag/{id}",[HomeftController::class,"tag"]);
 Route::get("frontend/old",[HomeftController::class,"fitterold"]);

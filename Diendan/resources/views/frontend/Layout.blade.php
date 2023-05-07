@@ -20,35 +20,49 @@ lang="en"
 </head>
 <body class="home">
     <div id="app">
+    <?php
+        $user = Auth::user()
+    ?>
         <header class="header">
             <nav class="navbar">
                 <div class="top_nav">
                     <div id="header-secondary" class="Header-secondary">
                     <ul class="Header-controls">
-                        <li class="item-session">
+                        @if (Auth::check())
+                            <li class="item-session">
                             <div class="ButtonGroup Dropdown ">
                                 <button class="Dropdown-toggle Button Button--user Button--flat">
-                                    <span class="Avatar " loading="lazy">L</span> 
-                                    <span class="Button-label">
-                                        <span class="username">longcv</span>
-                                    </span>
+                                    <span class="Avatar " loading="lazy">
+                                    <img src="{{asset('upload/user/'.$user->avatar)}}" alt class="w-px-40 h-auto rounded-circle" />
+                                    </span> 
+                                    
+                                        <span class="username">{{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</span>
+                                    
                                 </button>
                                 <ul class="Dropdown-menu">
                                     <li class="item-profile">
                                         <a class="hasIcon" href="/u/47" active="false">
                                             <i class="icon fas fa-user Button-icon"></i>
-                                            <span class="Button-label">Profile</span>
+                                            <span class="Button-label" style="text-transform: capitalize;">Thông tin cá nhân</span>
                                         </a>
                                     </li>
                                     <li class="item-logOut">
-                                        <button class="hasIcon" type="button">
+                                        <a href="{{url('frontend/logout')}}" class="hasIcon" type="button">
                                             <i  class="icon fas fa-sign-out-alt Button-icon"></i>
-                                            <span class="Button-label">Log Out</span>
-                                        </button>
+                                            <span class="Button-label" style="text-transform: capitalize;">Đăng xuất</span>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
+                        @else
+                        <li class="item-session">
+                            <span><a href="{{url('frontend/login')}}" style="color:#ffffff;">Đăng nhập</a></span>
+                        </li>
+                        <li class="item-session">
+                            <span><a href="{{url('frontend/register')}}" style=" margin-left:30px; color:#ffffff;">Đăng ký</a></span>
+                        </li>
+                        @endif
                     </ul>
                     </div>
                     <div class="logo">

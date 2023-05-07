@@ -40,11 +40,12 @@
 							<td>{{ $row->user_id }}</td>
 							<td>{{ $row->title }}</td>
 							<td class="text-center">
-
-                                @if ($row->status == 1)
+                                @if($row->status == 1)
                                     Hiện thị
-                                @elseif ($row->status  == 0)
+                                @elseif($row->status  == 0)
                                     Ẩn
+								@else
+                                    N/A
                                 @endif
                             </td>
 							<td style="text-align:center">

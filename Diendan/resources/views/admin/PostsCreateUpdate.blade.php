@@ -25,7 +25,7 @@
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12 px-0" data-select2-id="4">
                             <label for="category_id" class="control-label">Category</label>
                             <select class="form-control rounded-0 select2-hidden-accessible" name="category_id" id="category_id" data-select2-id="category_id" tabindex="-1" aria-hidden="true">
-                                <option value="" disabale >Select</option>
+                                <!-- <option value="value="{{$record->id }}"></option> -->
                                 @foreach($datacate as $row)
                                 <option value="{{$row->id }}">{{ $row->name }}</option>
                                 @endforeach
@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <div class="icheck-primary d-inline">
-                                <input type="checkbox" id="status" name="status" value="{{isset ($record->status)}}" >
+                                <input type="checkbox" id="status" name="status" value="{{isset ($record->status) ?$record->status:''}} " @if ($record->status) checked @endif >
                                 <label for="status" class="control-label">Published</label>
                             </div>
                         </div>

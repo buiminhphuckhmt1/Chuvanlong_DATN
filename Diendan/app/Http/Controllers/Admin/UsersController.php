@@ -31,22 +31,22 @@ class UsersController extends Controller
         //lấy một bản ghi -> sử dụng hàm first()
         $record = DB::table("users")->where("id","=",$id)->first();
         //gọi view, truyền dữ liệu ra view
-        return view("admin.UsersCreateUpdate",["record"=>$record,"action"=>$action]);
+        return view("admin.UsersUpdate",["record"=>$record,"action"=>$action]);
     }
     //Update Post
     public function updatePost($id){
-        $avatar =request("avatar");
         $firstname =request("firstname");
         $middlename =request("middlename");
         $lastname =request("lastname");
         $type =request("type");
         $username =request("username");
         $password = request("password");
-        // $file=request("avatar");
-        // $file_name=$file->getClientoriginalName();
-        // $file->move(public_path('upload/user'), $file_name);
-        //update name
-        DB::table("users")->where("id","=",$id)->update(["avatar"=>$avatar,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
+        if (!request("avatar")==null) {
+            $file = request("avatar");
+            $file->move('../public/upload/user', $file->getClientOriginalName());
+            $file_name= $file->getClientOriginalName();
+        }
+        DB::table("users")->where("id","=",$id)->update(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
         //nếu password không rỗng thì update password
         if($password != ""){
             //mã hóa password
@@ -62,11 +62,10 @@ class UsersController extends Controller
         //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào create)
         $action = url("backend/users/createPost");
         //gọi view, truyền dữ liệu ra view
-        return view("admin.UsersCreateUpdate",["action"=>$action]);
+        return view("admin.UsersCreate",["action"=>$action]);
     }
     //Create Post
     public function createPost(){
-        $avatar =request("avatar");
         $firstname =request("firstname");
         $middlename =request("middlename");
         $lastname =request("lastname");
@@ -75,12 +74,20 @@ class UsersController extends Controller
         $password = request("password");
         //mã hóa password
         $password = Hash::make($password);
+        if (!request("avatar")==null) {
+            $file = request("avatar");
+            $file->move('../public/upload/user', $file->getClientOriginalName());
+            $file_name= $file->getClientOriginalName();
+        }
+        else{
+            $file_name="logo.png";
+        }
         //kiểm tra xem email đã tồn tại trong csdl chưa, nếu chưa tồn tại thì mới cho update
         //Count() Đếm số bản ghi
         $check = DB::table("users")->where("username","=",$username)->Count();
         if($check == 0){
             //update
-            DB::table("users")->insert(["avatar"=>$avatar,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"username"=>$username,"type"=>$type,"password"=>$password]);
+            DB::table("users")->insert(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"username"=>$username,"type"=>$type,"password"=>$password]);
         }else
             return redirect(url("backend/users/create?notify=username-exists"));
         //di chuyển đến url khác
