@@ -21,8 +21,9 @@ class CategoryController extends Controller
             paginate(4) <=> phân trang 4 bản ghi trên một trang
         */
         $data = DB::table("category_list")->orderBy("id","desc")->paginate(4);
+        $action = url("backend/category/createPost");
         //gọi view, truyền dữ liệu ra view
-        return view("admin.CategoryRead",["data"=>$data]);
+        return view("admin.CategoryRead",["data"=>$data,"action"=>$action, ]);
     }
     //Update Get
     public function update($id){
@@ -39,7 +40,7 @@ class CategoryController extends Controller
         $description =request("description");
         $status =request("status");
         DB::table("category_list")->where("id","=",$id)->update(["name"=>$name,"description"=>$description,"status"=>$status]);
-        return redirect(url("backend/category"));
+        return redirect(url("backend/category?notify=updatecr-success"));
     }
     //Create Get
     public function create(){
@@ -60,9 +61,9 @@ class CategoryController extends Controller
             //update
             DB::table("category_list")->insert(["description"=>$description,"name"=>$name,"status"=>$status]);
         }else
-            return redirect(url("backend/category/create?notify=name-exists"));
+            return redirect(url("backend/category/?notify=category-exists"));
         //di chuyển đến url khác
-        return redirect(url("backend/category"));
+        return redirect(url("backend/category?notify=creatcr-success"));
     }
     //Delete
     public function delete($id){

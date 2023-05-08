@@ -22,6 +22,10 @@
 					<input type="text" name="lastname" id="lastname" class="form-control" value="{{ isset($record->lastname)?$record->lastname:'' }}" required>
 				</div>
 				<div class="form-group">
+					<label for="name">email</label>
+					<input type="email" name="email" id="email" class="form-control" value="{{ isset($record->email)?$record->email:'' }}">
+                </div>
+				<div class="form-group">
 					<label for="username">Tài khoản</label>
 					<input type="text" name="username" id="username" class="form-control" value="{{ isset($record->username)?$record->username:'' }}" required  autocomplete="off">
 				</div>

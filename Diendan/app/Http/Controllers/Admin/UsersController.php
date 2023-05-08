@@ -20,9 +20,11 @@ class UsersController extends Controller
             orderBy("id","desc") <=> order by id desc
             paginate(4) <=> phân trang 4 bản ghi trên một trang
         */
-        $data = DB::table("users")->orderBy("id","desc")->paginate(4);
+        $data = DB::table("users")->orderBy("id","desc")->paginate(10);
+        $action = url("backend/users/createPost");
+        // $paginator = Paginator::make($data, $totalBrand, $perPage);
         //gọi view, truyền dữ liệu ra view
-        return view("admin.UsersRead",["data"=>$data]);
+        return view("admin.UsersRead",["data"=>$data,"action"=>$action]);
     }
     //Update Get
     public function update($id){
@@ -39,14 +41,17 @@ class UsersController extends Controller
         $middlename =request("middlename");
         $lastname =request("lastname");
         $type =request("type");
+        $email =request("email");
         $username =request("username");
         $password = request("password");
         if (!request("avatar")==null) {
             $file = request("avatar");
             $file->move('../public/upload/user', $file->getClientOriginalName());
             $file_name= $file->getClientOriginalName();
+            DB::table("users")->where("id","=",$id)->update(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
+
         }
-        DB::table("users")->where("id","=",$id)->update(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
+        DB::table("users")->where("id","=",$id)->update(["email"=>$email,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
         //nếu password không rỗng thì update password
         if($password != ""){
             //mã hóa password
@@ -55,7 +60,7 @@ class UsersController extends Controller
             DB::table("users")->where("id","=",$id)->update(["password"=>$password]);
         }
         //di chuyển đến url khác
-        return redirect(url("backend/users"));
+        return redirect(url("backend/users?notify=update-success"));
     }
     //Create Get
     public function create(){
@@ -70,6 +75,7 @@ class UsersController extends Controller
         $middlename =request("middlename");
         $lastname =request("lastname");
         $type =request("type");
+        $email =request("email");
         $username =request("username");
         $password = request("password");
         //mã hóa password
@@ -85,13 +91,16 @@ class UsersController extends Controller
         //kiểm tra xem email đã tồn tại trong csdl chưa, nếu chưa tồn tại thì mới cho update
         //Count() Đếm số bản ghi
         $check = DB::table("users")->where("username","=",$username)->Count();
-        if($check == 0){
-            //update
-            DB::table("users")->insert(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"username"=>$username,"type"=>$type,"password"=>$password]);
+        $checkemail = DB::table("users")->where("email","=",$email)->Count();
+        if(!$check == 0){
+            return redirect(url("backend/users/?notify=username-exists"));
+        }
+        elseif(!$checkemail ==0){
+            return redirect(url("backend/users/?notify=email-exists"));
         }else
-            return redirect(url("backend/users/create?notify=username-exists"));
+            DB::table("users")->insert(["avatar"=>$file_name,"email"=>$email,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"username"=>$username,"type"=>$type,"password"=>$password]);
         //di chuyển đến url khác
-        return redirect(url("backend/users"));
+        return redirect(url("backend/users/?notify=creat-success"));
     }
     //Delete
     public function delete($id){

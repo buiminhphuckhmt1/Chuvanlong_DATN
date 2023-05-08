@@ -49,9 +49,6 @@
 
     <!-- Helpers -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/vendor/js/helpers.js') }}"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/config.js') }}"></script>
              <script type="text/javascript" src="{{ asset('admin/assets/ckeditor/ckeditor.js') }}"></script>
   </head>
@@ -84,24 +81,24 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <!-- <li class="menu-item">
+            <li class="menu-item">
               <a href="{{ url('backend/home') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div data-i18n="Analytics">Thống kê</div>
               </a>
-            </li> -->
+            </li>
 
             <!-- Layouts -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
+                <div data-i18n="Layouts">Giao diện</div>
               </a>
 
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="{{ asset('admin/assets/admin/layout2/html/layout-without-menu.html') }}" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
+                    <div data-i18n="Without menu">Menu</div>
                   </a>
                 </li>
                 <li class="menu-item">
@@ -132,27 +129,27 @@
             <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li> -->
  
             <li class="menu-item">
-              <a href="{{ asset('admin/assets/admin/layout2/html/tables-basic.html') }}" class="menu-link">
+              <a href="javascrip" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Tables">Tables</div>
+                <div data-i18n="Tables">Quản lý bảng</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{{ url('backend/users') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">User management</div>
+                <div data-i18n="Tables">Quản lý tài khoản</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{{ url('backend/posts') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">List Posts</div>
+                <div data-i18n="Tables">Quản lý bài thảo luận</div>
               </a>
             </li>
             <li class="menu-item">
               <a href="{{ url('backend/category') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">Categories</div>
+                <div data-i18n="Tables">Quản lý danh mục</div>
               </a>
             </li>
             <!-- <li class="menu-item">

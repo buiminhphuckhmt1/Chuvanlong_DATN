@@ -20,9 +20,21 @@ class PostsController extends Controller
             orderBy("id","desc") <=> order by id desc
             paginate(4) <=> phân trang 4 bản ghi trên một trang
         */
-        $data = DB::table("post_list")->orderBy("id","desc")->paginate(4);
+        $data = DB::table("post_list")->orderBy("id","desc")->paginate(10);
+        $action = url("backend/users/createPost");
         //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsRead",["data"=>$data]);
+        return view("admin.PostsRead",["data"=>$data,"action"=>$action]);
+    }
+    public function getusename($user_id){
+        //sử dụng đối tượng DB để truy vấn csdl
+        /*
+            DB::table("category_list") <=> select * from category_list
+            orderBy("id","desc") <=> order by id desc
+            paginate(4) <=> phân trang 4 bản ghi trên một trang
+        */
+        $usename = DB::table("category_list")->where("id","=",$user_id)->first();
+        //gọi view, truyền dữ liệu ra view
+        return (["usename"=>$usename,]);
     }
     public function view($id){
         $dataview = DB::table("post_list")->orderBy("id");
