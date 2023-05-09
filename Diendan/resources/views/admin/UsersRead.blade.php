@@ -18,6 +18,24 @@
                 <form method="post" action="{{ $action }}" id="formcreateuser" enctype="multipart/form-data">
 							    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 							    <div class="modal-body">
+                  <div class="card-body">
+                      <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <img src="{{ asset('upload/user/logo.png')}}"  alt="user-avatar" class="d-block rounded-circle" height="100" width="100" id="uploadedAvatar">
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-2" tabindex="0">
+                            <span class="d-none d-sm-block">Tải ảnh lên</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input  type="file" name="avatar" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-2">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Định dạng</span>
+                          </button>
+
+                          <p class="text-muted mb-0 fs-tiny ">Cho phép JPG, GIF hoặc PNG. Kích thước tối đa 800K</p>
+                        </div>
+                      </div>
+                    </div>
 							    <div class="row g-2">
 							  	  <div class="col mb-0">
 									    <label for="name">Họ</label>
@@ -57,8 +75,8 @@
 									</select>
                                   </div>
                                   <div class="col mb-0">
-                                    <label for="dobBasic" >Ảnh</label>
-                                    <input class="form-control" type="file" id="formFile" name="avatar">
+                                    <!-- <label for="dobBasic" >Ảnh</label>
+                                    <input class="form-control" type="file" id="formFile" name="avatar"> -->
                                   </div>
                               	</div>
 								</div>
@@ -83,7 +101,9 @@
           @if(Request::get("notify") == "creat-success")
 					<div class="alert alert-primary" role="alert">Tạo tài khoản thành công</div>
 					@endif
-			
+          @if(Request::get("notify") == "update-success")
+            <div class="alert alert-primary" role="alert">Cập nhật tài khoản thành công</div>
+          @endif
               <div class="card">
                 <h5 class="card-header">Danh sách tài khoản</h5>
                 <div class="table-responsive text-nowrap">

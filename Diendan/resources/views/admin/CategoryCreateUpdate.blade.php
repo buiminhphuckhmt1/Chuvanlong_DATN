@@ -24,22 +24,22 @@
 						<div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-phone">Mô tả</label>
                           <div class="col-sm-10">
-						  <textarea type="text" name="description" class="form-control" value="{{ isset($record->description)?$record->description:'' }}"></textarea>          
+						  <textarea type="text" name="description" class="form-control" value="">{{ isset($record->description)?$record->description:'' }}</textarea>          
 						</div>
                         </div>
 						<div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-company">Trạng thái</label>
 						  <div class="col-sm-10">
 						  <select name="status" id="type" class="form-select" required>
-							<option value="1" {{ isset($record->status)?$record->status:1 }}>Hiện thị</option>
-							<option value="2" {{ isset($record->status)?$record->status:2 }}>Ẩn</option>
+							<option value="1" @if($record->status=='1'){{ 'selected' }} @endif>Hiện thị</option>
+							<option value="2" @if($record->status=='2'){{ 'selected' }} @endif>Ẩn</option>
 						  </select>
 							</div>
                         </div>
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <button type="submit" form="category_list" value="submit" class="btn btn-primary">Cập nhật</button>
-							<a href="{{ url('backend/category') }}"><button type="button" class="btn btn-primary"><i class="fa fa-angle-left"></i>Trở lại</button></a>
+                            <button type="submit" form="category-list" value="submit" class="btn btn-primary">Cập nhật</button>
+							              <a href="{{ url('backend/category') }}"><button type="button" class="btn btn-primary"><i class="fa fa-angle-left"></i>Trở lại</button></a>
                           </div>
                         </div>
                       </form>

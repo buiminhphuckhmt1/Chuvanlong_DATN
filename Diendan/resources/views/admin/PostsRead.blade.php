@@ -76,12 +76,12 @@
                       <?php 
                                 $stt=1;
                               ?>
-                      @foreach($data as $row) 
+                      @foreach($posts as $row) 
                       <tr>
                         <td class="text-center">{{$stt++}}</td>
                         <td>{{ $row->date_updated }}</td>
-                        <td>{{ $row->user_id}}</td>
-						<td>{{ $row->category_id}}</td>
+                        <td>{{ $row->user->username}}</td>
+						            <td>{{ $row->category->name}}</td>
                         <td style="max-width:400px">{{ $row->title }}</td>
                         <td style="text-align: center;">
                           @if ($row->status == 1)
@@ -96,9 +96,11 @@
                               <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="{{ url('backend/category/update/'.$row->id) }}"><i
+                              <a class="dropdown-item" href="{{ url('backend/posts/view/'.$row->id) }}"><i
+                                  class="bx bx-edit-alt me-1"></i> Xem</a>
+                              <a class="dropdown-item" href="{{ url('backend/posts/update/'.$row->id) }}"><i
                                   class="bx bx-edit-alt me-1"></i> Sửa</a>
-                              <a class="dropdown-item" href="{{ url('backend/category/delete/'.$row->id) }}"
+                              <a class="dropdown-item" href="{{ url('backend/posts/delete/'.$row->id) }}"
                                 onclick="return window.confirm('Bạn có xác nhận xóa không');"><i
                                   class="bx bx-trash me-1"></i> Xóa</a>
                             </div>
@@ -111,7 +113,7 @@
                 </div>
               </div>
               <div style="margin:20px 0;"></div>
-              {{ $data->links('admin.pagination-cus') }}
+              {{ $posts->links('admin.pagination-cus') }}
             </div>
           </div>
 @endsection

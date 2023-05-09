@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 //Trong controller, để sử dụng đối tượng nào thì phải khai báo đối tượng đó ở đây
 //đối tượng mã hóa password
@@ -20,21 +22,14 @@ class PostsController extends Controller
             orderBy("id","desc") <=> order by id desc
             paginate(4) <=> phân trang 4 bản ghi trên một trang
         */
-        $data = DB::table("post_list")->orderBy("id","desc")->paginate(10);
+        // $data = DB::table("post_list")->orderBy("id","desc")->paginate(10);
         $action = url("backend/users/createPost");
-        //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsRead",["data"=>$data,"action"=>$action]);
-    }
-    public function getusename($user_id){
-        //sử dụng đối tượng DB để truy vấn csdl
-        /*
-            DB::table("category_list") <=> select * from category_list
-            orderBy("id","desc") <=> order by id desc
-            paginate(4) <=> phân trang 4 bản ghi trên một trang
-        */
-        $usename = DB::table("category_list")->where("id","=",$user_id)->first();
-        //gọi view, truyền dữ liệu ra view
-        return (["usename"=>$usename,]);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        // //gọi view, truyền dữ liệu ra view
+        // return view("admin.PostsRead",["data"=>$data,"action"=>$action]);
+        $posts = Post::paginate(20);
+
+        return view('admin.PostsRead', compact('posts'),["action"=>$action,"datacate"=>$datacate]);
     }
     public function view($id){
         $dataview = DB::table("post_list")->orderBy("id");

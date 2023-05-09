@@ -230,7 +230,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="{{asset('upload/user/'.$user->avatar)}}" alt class="w-px-40 h-auto rounded-circle" />
+                      <img src="{{asset('upload/user/'.$user->avatar)}}" alt class="w-px-40 h-px-40 rounded-circle" />
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -239,7 +239,7 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="{{asset('upload/user/'.$user->avatar)}}" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="{{asset('upload/user/'.$user->avatar)}}" alt  class="w-px-40 h-px-40 rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
@@ -253,7 +253,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="{{ url('backend/users/personal/'.$user->id) }}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">Thông tin tài khoản</span>
                       </a>
@@ -330,6 +330,7 @@
 
     <!-- Page JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/dashboards-analytics.js') }}"></script>
+    <script src="{{ asset('admin/assets/admin/layout2/assets/js/pages-account-settings-account.js') }}"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

@@ -2,7 +2,10 @@
 @section("do-du-lieu-vao-layout")
 <div class="card card-outline rounded-0 card-navy" style="background:none; box-shadow:none">
 <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý bảng/ Quản lý tài khoản/</span> Sửa thông tin</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Thông tin tài khoản</h4>
+              @if(Request::get("notify") == "personal-success")
+                    <div class="alert alert-primary" role="alert">Cập nhật tài khoản thành công</div>
+                @endif
               <div class="row">
                 <div class="col-xxl">
                       <form method="post" action="{{ $action }}" id="formupdateuser" enctype="multipart/form-data">

@@ -35,6 +35,40 @@ class UsersController extends Controller
         //gọi view, truyền dữ liệu ra view
         return view("admin.UsersUpdate",["record"=>$record,"action"=>$action]);
     }
+    public function personal($id){
+        //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào update)
+        $action = url("backend/users/personalPost/$id");
+        //lấy một bản ghi -> sử dụng hàm first()
+        $record = DB::table("users")->where("id","=",$id)->first();
+        //gọi view, truyền dữ liệu ra view
+        return view("admin.Personal",["record"=>$record,"action"=>$action]);
+    }
+    public function personalPost($id){
+        $firstname =request("firstname");
+        $middlename =request("middlename");
+        $lastname =request("lastname");
+        $type =request("type");
+        $email =request("email");
+        $username =request("username");
+        $password = request("password");
+        if (!request("avatar")==null) {
+            $file = request("avatar");
+            $file->move('../public/upload/user', $file->getClientOriginalName());
+            $file_name= $file->getClientOriginalName();
+            DB::table("users")->where("id","=",$id)->update(["avatar"=>$file_name,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
+
+        }
+        DB::table("users")->where("id","=",$id)->update(["email"=>$email,"firstname"=>$firstname,"middlename"=>$middlename,"lastname"=>$lastname,"type"=>$type,"username"=>$username]);
+        //nếu password không rỗng thì update password
+        if($password != ""){
+            //mã hóa password
+            $password = Hash::make($password);
+            //update password
+            DB::table("users")->where("id","=",$id)->update(["password"=>$password]);
+        }
+        //di chuyển đến url khác
+        return redirect(url("backend/users/personal/$id/?notify=personal-success"));
+    }
     //Update Post
     public function updatePost($id){
         $firstname =request("firstname");
@@ -60,7 +94,7 @@ class UsersController extends Controller
             DB::table("users")->where("id","=",$id)->update(["password"=>$password]);
         }
         //di chuyển đến url khác
-        return redirect(url("backend/users?notify=update-success"));
+        return redirect(url("backend/users/?notify=update-success"));
     }
     //Create Get
     public function create(){
