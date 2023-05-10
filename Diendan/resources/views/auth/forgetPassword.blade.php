@@ -19,10 +19,9 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/img-logo-header.png')}}">
+    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/favicon_forum.jpg')}}">
 
     <!-- Favicon -->
-    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('admin/assets/admin/layout3/images/icon.jpg') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

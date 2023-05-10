@@ -141,6 +141,6 @@ class UsersController extends Controller
         //delete bản ghi
         DB::table("users")->where("id","=",$id)->delete();
         //di chuyển đến url khác
-        return redirect(url("backend/users"));
+        return redirect(url("backend/users/?notify=delete-success"));
     }
 }

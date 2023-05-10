@@ -20,15 +20,13 @@ Route::get("backend/login",function(){
 //sau khi an nut submit
 Route::post("backend/login",function(){
     //lay gia tri form
+    $user = Auth::user();
     $username = request("username");
     $password = request("password");
-    if (!request("remember")==null) {
-        $remember = request('remember');
-    }
-    if(Auth::Attempt(["username"=>$username,"password"=>$password]))
-        return redirect(url("backend/home"));
-    else
-        return redirect(url("backend/login?notify=invalid"));
+    if(Auth::Attempt(["username"=>$username,"password"=>$password]) && Auth::user()->type == 1)
+         return redirect(url("backend/home"));
+     else
+         return redirect(url("backend/login?notify=invalid"));
 });
 //url: public/logout
 Route::get('backend/logout',function(){
@@ -115,6 +113,8 @@ Route::get("backend/category/delete/{id}",[CategoryController::class,"delete"])-
  Route::post("backend/posts/createPost",[PostsController::class,"createPost"])->Middleware("check_login");
 // //Delete
  Route::get("backend/posts/delete/{id}",[PostsController::class,"delete"])->Middleware("check_login");
+ // //Delete comment
+ Route::get("backend/posts/deletecmt/{id}",[PostsController::class,"deletecmt"])->Middleware("check_login");
  //---
  Route::get("frontend/login",function(){
      return View::make("frontend.Login");

@@ -1,41 +1,68 @@
 <!-- load file Layout.blade.php vào đây -->
 @extends("admin.Layout")
 @section("do-du-lieu-vao-layout")
+<?php 
+                                $stt=1;
+                              ?>
 <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý bảng /</span> Quản lý bài thảo luận
-              </h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý bảng /</span> Quản lý bài thảo luận</h4>
+              @if(Request::get("notify") == "creat-success")
+              <div class="alert alert-primary" role="alert">Tạo bài thảo luận thành công</div>
+              @endif
+              @if(Request::get("notify") == "update-success")
+                <div class="alert alert-primary" role="alert">Cập nhật tbài thảo luận thành công</div>
+              @endif
+              @if(Request::get("notify") == "delete-success")
+              <div class="alert alert-danger">Đã xóa bài thảo luận !</div>
+              @endif
               <div class="col-lg-4 col-md-6">
                 <!-- <a href="{{ url('backend/category/create') }}" id="create_new" class="btn btn-flat btn-primary">Create New</a> -->
                 <div class="mt-3">
                   <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal"
                     data-bs-target="#basicModal">Tạo bài thảo luận</button>
-                  <!-- <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                  <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel1">Tạo bài thảo luận</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form method="post" action="{{ $action }}" id="category-list">
+                        <form method="post" action="{{ $action }}" id="post-list" enctype="multipart/form-data">
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="modal-body">
                             <div class="row g-2">
                               <div class="col mb-0">
-                                <label for="name">Danh mục</label>
-                                <input type="text" name="name" class="form-control"
-                                  value="{{ isset($record->name)?$record->name:'' }}" required>
+                                <label for="name">Tiêu đề</label>
+                                <input type="text" name="title" class="form-control"
+                                  value="" required>
                               </div>
                             </div>
                             <div class="row g-2">
                               <div class="col mb-0">
-                                <label for="password"> Mô tả</label>
-                                <textarea type="text" name="description" class="form-control"
-                                  value="{{ isset($record->description)?$record->description:'' }}"> </textarea>
+                                <label for="description"> Mô tả</label>
+                                <textarea class="form-control" id="description" name="description" placeholder="Nhập mô tả"></textarea>
                               </div>
                             </div>
                             <div class="row g-2">
-                              <label for="type" class="control-label">Loại tài khoản</label>
+                              <div class="col mb-0">
+                                <label for="content"> Nội dung</label>
+                                <textarea class="form-control" id="content" placeholder="Nhập nội dung" name="content"></textarea>
+                                <script type="text/javascript">
+                                  CKEDITOR.replace("content");
+                                </script>
+                              </div>
+                            </div>
+                            <div class="row g-2">
+                              <label for="type" class="control-label">Tags</label>
+                              <select name="category_id" id="type" class="form-select" required>
+                              @foreach($datacate as $row)
+                                <option value="{{ $row->id}}">{{ $row->name}}</option>
+                              @endforeach
+                              </select>
+                            </div>
+                            <div class="row g-2">
+                              <label for="type" class="control-label">Trạng thái</label>
                               <select name="status" id="type" class="form-select" required>
                                 <option value="1" {{ isset($record->status)?$record->status:1 }}>Hiện thị</option>
                                 <option value="2" {{ isset($record->status)?$record->status:2 }}>Ẩn</option>
@@ -45,13 +72,13 @@
                           <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                               data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" form="category-list" value="Submit"
+                            <button type="submit" form="post-list" value="Submit"
                               class="btn btn-primary">Lưu</button>
                           </div>
                         </form>
                       </div>
                     </div>
-                  </div>-->
+                  </div>
                 </div>
               </div>
               @if(Request::get("notify") == "creatcr-success")
@@ -73,9 +100,6 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0 text-center" >
-                      <?php 
-                                $stt=1;
-                              ?>
                       @foreach($posts as $row) 
                       <tr>
                         <td class="text-center">{{$stt++}}</td>

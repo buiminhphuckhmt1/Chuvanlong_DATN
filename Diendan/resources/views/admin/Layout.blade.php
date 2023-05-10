@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/img-logo-header.png')}}">
+    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/favicon_forum.jpg')}}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +50,7 @@
     <!-- Helpers -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/config.js') }}"></script>
-             <script type="text/javascript" src="{{ asset('admin/assets/ckeditor/ckeditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('admin/assets/ckeditor/ckeditor.js') }}"></script>
   </head>
 
   <body>
@@ -65,8 +65,8 @@
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
             <a href="index.php" class="app-brand-link">
-              <span class="app-brand-logo demo">
-                  <!-- <img src="{{ asset('admin/assets/admin/layout3/images/icon.jpg') }}"> -->
+              <span class="app-brand-logo demo w-px-30 h-px-30">
+                  <img class="w-px-30 h-px-30" src="{{ asset('template/images/favicon_forum.jpg') }}">
                 </svg>
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: uppercase;">ADMIN</span>
@@ -89,7 +89,7 @@
             </li>
 
             <!-- Layouts -->
-            <li class="menu-item">
+            <li class="menu-item open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Giao diện</div>
@@ -127,59 +127,29 @@
 
             <!-- Forms & Tables -->
             <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp; Tables</span></li> -->
- 
-            <li class="menu-item">
-              <a href="javascrip" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
+            <li class="menu-item open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Tables">Quản lý bảng</div>
               </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{{ url('backend/users') }}" class="menu-link">
+                    <div data-i18n="Tables">Quản lý tài khoản</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ url('backend/posts') }}" class="menu-link">
+                    <div data-i18n="Tables">Quản lý bài thảo luận</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{{ url('backend/category') }}" class="menu-link">
+                    <div data-i18n="Tables">Quản lý danh mục</div>
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="menu-item">
-              <a href="{{ url('backend/users') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">Quản lý tài khoản</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="{{ url('backend/posts') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">Quản lý bài thảo luận</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a href="{{ url('backend/category') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">Quản lý danh mục</div>
-              </a>
-            </li>
-            <!-- <li class="menu-item">
-              <a href="index.php?controller=managerlayout" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table1"></i>
-                <div data-i18n="Tables">Management layout</div>
-              </a>
-            </li> -->
-            <!-- Misc -->
-            <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-            <li class="menu-item">
-              <a
-                href="https://github.com/themeselection/sneat-html/-admin-template-free/issues"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Support">Support</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a
-                href="https://themeselection.com/demo/sneat-bootstrap-html/-admin-template/documentation"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Documentation">Documentation</div>
-              </a>
-            </li> -->
           </ul>
         </aside>
         <!-- / Menu -->
@@ -331,8 +301,5 @@
     <!-- Page JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/dashboards-analytics.js') }}"></script>
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/pages-account-settings-account.js') }}"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html/>

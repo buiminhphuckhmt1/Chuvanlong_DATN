@@ -68,7 +68,7 @@
                         </div>
                         <div class="mt-2">
                           <button type="submit" class="btn btn-primary me-2">Lưu</button>
-                          <a href="{{ url('backend/category') }}"><button type="reset" class="btn btn-outline-secondary">Trở về</button></a>
+                          <a href="{{ url('backend/users') }}"><button type="button" class="btn btn-outline-secondary">Trở về</button></a>
                         </div>
                     </div>
                     <!-- /Account -->

@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Comments;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use DB;
 
@@ -35,12 +39,25 @@ class HomeftController extends Controller
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function viewquestion($id){
-        //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào update)
-        $action = url("frontend/question/$id");
-        //lấy một bản ghi -> sử dụng hàm first()
-        $record = DB::table("post_list")->where("id","=",$id)->first();
-        //gọi view, truyền dữ liệu ra view
-        return view("frontend.Questiondetail",["record"=>$record,"action"=>$action]);
+        $post = Post::where('id', $id)->first();
+        // $post->update([
+        //     'view_count' => $post->view_counts+ 1
+        // ]);
+
+        $relate = Post::where('category_id', $post->category_id)->take(2)->inRandomOrder()->get();
+
+        $comments = Comments::where("post_id", $post->id)->paginate(10);
+
+        return view('frontend.Questiondetail', compact('post', 'relate', 'comments'));
+    }
+    public function comment(Request $request, $id)
+    {
+        Comment::create([
+            'content' => $request->get('content'),
+            'user_id' => Auth::id(),
+            'post_id' => $id
+        ]);
+        return redirect()->back();
     }
     //Update Get
     public function update($id){

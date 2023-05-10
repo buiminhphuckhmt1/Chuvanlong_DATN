@@ -70,6 +70,6 @@ class CategoryController extends Controller
         //delete bản ghi
         DB::table("category_list")->where("id","=",$id)->delete();
         //di chuyển đến url khác
-        return redirect(url("backend/category"));
+        return redirect(url("backend/category/?notify=delete-success"));
     }
 }

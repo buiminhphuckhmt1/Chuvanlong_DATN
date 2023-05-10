@@ -10,7 +10,7 @@ lang="en"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQFORUM</title>
-    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/img-logo-header.png')}}">
+    <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/favicon_forum.jpg')}}">
     <link rel="stylesheet" href="{{ asset('template/libs/swiper/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('template/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('admin/assets/admin/layout2/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
@@ -24,37 +24,54 @@ lang="en"
         $user = Auth::user()
     ?>
         <header class="header">
-            <nav class="navbar">
+            <nav class="navbar navbar-nav">
                 <div class="top_nav">
                     <div id="header-secondary" class="Header-secondary">
                     <ul class="Header-controls">
                         @if (Auth::check())
-                            <li class="item-session">
-                            <div class="ButtonGroup Dropdown ">
-                                <button class="Dropdown-toggle Button Button--user Button--flat">
-                                    <span class="Avatar " loading="lazy">
-                                    <img src="{{asset('upload/user/'.$user->avatar)}}" alt class="w-px-40 h-auto rounded-circle" />
-                                    </span> 
-                                    
-                                        <span class="username">{{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</span>
-                                    
-                                </button>
-                                <ul class="Dropdown-menu">
-                                    <li class="item-profile">
-                                        <a class="hasIcon" href="/u/47" active="false">
-                                            <i class="icon fas fa-user Button-icon"></i>
-                                            <span class="Button-label" style="text-transform: capitalize;">Thông tin cá nhân</span>
-                                        </a>
-                                    </li>
-                                    <li class="item-logOut">
-                                        <a href="{{url('frontend/logout')}}" class="hasIcon" type="button">
-                                            <i  class="icon fas fa-sign-out-alt Button-icon"></i>
-                                            <span class="Button-label" style="text-transform: capitalize;">Đăng xuất</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="true">
+                    <div class="avatar avatar-online">
+                      <img src="http://localhost/Chuvanlong_DATN/Diendan/public/upload/user/logo.png" alt="" class="w-px-40 h-px-40 rounded-circle">
+                    </div>
+                  </a>
+                  <ul  class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
+                    <li>
+                      <a class="dropdown-item" href="#">
+                        <div class="d-flex">
+                          <div class="flex-shrink-0 me-3">
+                            <div class="avatar avatar-online">
+                              <img src="http://localhost/Chuvanlong_DATN/Diendan/public/upload/user/logo.png" alt="" class="w-px-40 h-px-40 rounded-circle">
                             </div>
-                        </li>
+                          </div>
+                          <div class="flex-grow-1">
+                            <span class="fw-semibold d-block">{{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</span>
+                            @if ($user->type == 1)
+                            <small class="text-muted">Quản trị</small>
+                            @elseif ($user->type  == 2)
+                            <small class="text-muted">Người dùng</small>
+                            @endif
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="http://localhost/Chuvanlong_DATN/Diendan/public/backend/users/personal/1">
+                        <i class="bx bx-user me-2"></i>
+                        <span class="align-middle">Thông tin tài khoản</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{url('frontend/logout')}}">
+                        <i class="bx bx-power-off me-2"></i>
+                        <span class="align-middle">Đăng xuất</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
                         @else
                         <li class="item-session">
                             <span><a href="{{url('frontend/login')}}" style="color:#ffffff;">Đăng nhập</a></span>

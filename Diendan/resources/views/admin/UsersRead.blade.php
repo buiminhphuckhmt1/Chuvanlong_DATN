@@ -9,7 +9,7 @@
       <div class="mt-3">
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#basicModal">Tạo tài khoản</button>
           <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel1">Tạo tài khoản</h5>
@@ -104,6 +104,9 @@
           @if(Request::get("notify") == "update-success")
             <div class="alert alert-primary" role="alert">Cập nhật tài khoản thành công</div>
           @endif
+          @if(Request::get("notify") == "delete-success")
+					<div class="alert alert-danger">Đã xóa tài khoản !</div>
+					@endif
               <div class="card">
                 <h5 class="card-header">Danh sách tài khoản</h5>
                 <div class="table-responsive text-nowrap">

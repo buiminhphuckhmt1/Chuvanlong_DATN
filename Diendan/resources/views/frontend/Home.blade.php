@@ -23,8 +23,12 @@
                                         </li>
                                         @foreach($datacate as $record)
                                         <li>
-                                            <svg width='16' height='12' style='background: #252424'></svg>
-                                            <a href="{{ url('frontend/tag/'.$record->id) }}">{{ $record->name }}</a>
+                                        <a href="{{ url('frontend/tag/'.$record->id) }}">
+                                        <span class=" demo w-px-20 h-px-20">
+                                            <img class="w-px-20 h-px-20" src="{{ asset('template/images/tag-icon.png') }}">
+                                        </span>
+                                            <span>{{ $record->name }}<span>
+                                        </a>
                                         </li>
                                         @endforeach
                                     </ul>

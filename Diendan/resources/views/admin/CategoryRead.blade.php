@@ -11,7 +11,7 @@
                   <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal"
                     data-bs-target="#basicModal">Tạo danh mục</button>
                   <div class="modal fade" id="basicModal" tabindex="-1" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel1">Tạo danh mục</h5>
@@ -59,6 +59,9 @@
               @endif
               @if(Request::get("notify") == "creatcr-success")
               <div class="alert alert-primary" role="alert">Tạo danh mục thành công</div>
+              @endif
+              @if(Request::get("notify") == "delete-success")
+              <div class="alert alert-danger">Đã xóa danh mục !</div>
               @endif
               <div class="card">
                 <h5 class="card-header">Danh sách danh mục</h5>

@@ -4,7 +4,7 @@
         <div class="page-title d-sm-block">
           <div class="container">
             <div class="title">
-              <h2>{{$record->title}}</h2>
+              <h2>{{$post->title}}</h2>
             </div>
           </div>
         </div>
@@ -19,10 +19,10 @@
                   <div class="item-post-content">
                     <div class="inf-user-post">
                       <span class="use"> abcdef</span>
-                      <span>{{$record->date_updated}}</span>
+                      <span>{{$post->date_updated}}</span>
                     </div>
                     <div class="content">
-                    {{$record->content}}
+                    {{$post->content}}
                     </div>
                     <div class="repdy-like">
                     </div>
@@ -44,27 +44,6 @@
                         </ul>
                       </div>
                     </li>
-                    <!-- <li class="item-scrubber">
-                      <div class="PostStreamScrubber Dropdown App-titleControl">
-                        <div class="Dropdown-menu dropdown-menu">
-                          <div class="Scrubber"><a class="Scrubber-first"><i aria-hidden="true"
-                                class="icon fas fa-angle-double-up "></i> Original Post</a>
-                            <div class="Scrubber-scrollbar" style="max-height: 127.667px;">
-                              <div class="Scrubber-before" style="height: 0%;"></div>
-                              <div class="Scrubber-handle" style="height: 16.6667%;">
-                                <div class="Scrubber-bar"></div>
-                                <div class="Scrubber-info"><strong><span class="Scrubber-index">1</span> of <span
-                                      class="Scrubber-count">10</span> posts</strong><span
-                                    class="Scrubber-description">April 2023</span></div>
-                              </div>
-                              <div class="Scrubber-after" style="height: 83.3333%;"></div>
-                              <div class="Scrubber-unread" style="top: 10%; height: 90%;">9 unread</div>
-                            </div><a class="Scrubber-last"><i aria-hidden="true"
-                                class="icon fas fa-angle-double-down "></i> Now</a>
-                          </div>
-                        </div>
-                      </div>
-                    </li> -->
                   </ul>
                 </nav>
               </div>
@@ -72,4 +51,12 @@
           </div>
         </div>
       </div>
+      @foreach($post->comments as $comment)
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h4 class="media-heading user_name">{{ $comment->user->name }} <small>{{ \Carbon\Carbon::parse($comment->created_at)->format('d-m-Y')  }}</small></h4>
+                                                <p>{{ $comment->content }}</p>
+                                            </div>
+                                        </div>
+                                    @endforeach
 @endsection
