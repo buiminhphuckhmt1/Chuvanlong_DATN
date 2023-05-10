@@ -109,7 +109,7 @@ function textarea__autoHeight() {
 $(document).ready(function () {
 	mobileMenu();
 	scrollTop();
-	scrollSticky();
+	//scrollSticky();
 	dropmenu();
 	if ($(window).width() < 992) {
 		clickSiblingsToggle('.nav_link');

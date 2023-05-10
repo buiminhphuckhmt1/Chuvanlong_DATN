@@ -14,27 +14,27 @@ use DB;
 class HomeftController extends Controller
 {
     public function index(){
-        $data = DB::table("post_list")->orderBy("id","desc")->paginate(10);
+        $data = Post::paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
-        return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
+        return view("frontend.Home",compact('data'),["datacate"=>$datacate]);
     }
     public function fitterold(){
-        $data = DB::table("post_list")->orderBy("date_updated","asc")->paginate(10);
+        $data = Post::orderBy("date_updated","asc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function fitternew(){
-        $data = DB::table("post_list")->orderBy("date_updated","desc")->paginate(10);
+        $data = Post::orderBy("date_updated","desc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function follow(){
-        $data = DB::table("post_list")->where("follow","=",1)->orderBy("id","desc")->paginate(10);
+        $data = Post::where("follow","=",1)->orderBy("id","desc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function tag($id){
-        $data = DB::table("post_list")->where("category_id","=",$id)->orderBy("category_id","desc")->paginate(10);
+        $data = Post::where("category_id","=",$id)->orderBy("category_id","desc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }

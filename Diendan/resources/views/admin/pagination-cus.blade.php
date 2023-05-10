@@ -1,4 +1,4 @@
-<nav aria-label="Page navigation" >
+<nav aria-label="Page navigation" style="display:block; width:unset; height:unset;" >
     @if ($paginator->hasPages())
     <ul class="pagination" style="justify-content: end;">
        

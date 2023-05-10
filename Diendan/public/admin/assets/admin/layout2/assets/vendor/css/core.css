@@ -162,9 +162,9 @@ address {
 }
 
 ol,
-ul {
+/* ul {
   padding-left: 2rem;
-}
+} */
 
 ol,
 ul,
@@ -8296,9 +8296,9 @@ button.list-group-item-gray.active {
   color: #fff;
 }
 
-.navbar {
-  z-index: 2;
-}
+/* .navbar {
+  z-index: 3;
+} */
 .navbar .dropdown:focus,
 .navbar .dropdown-toggle:focus {
   outline: 0;
@@ -9559,7 +9559,9 @@ button.list-group-item-gray.active {
 .mt-5 {
   margin-top: 3rem !important;
 }
-
+.mt-7 {
+  margin-top: 5rem !important;
+}
 .mt-auto {
   margin-top: auto !important;
 }

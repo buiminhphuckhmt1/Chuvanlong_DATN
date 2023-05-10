@@ -174,6 +174,8 @@ Route::post("frontend/posts/createPost",[PostsftController::class,"createPost"])
 //Delete
 //Route::get("backend/posts/delete/{id}",[PostsController::class,"delete"])->Middleware("_login");
 //---
+Route::get("frontend/posts/post/comment/{id}",[PostsftController::class,"comment"])->Middleware("_login"); 
+
 Route::get("frontend/login",function(){
     return View::make("frontend.Login");
 });

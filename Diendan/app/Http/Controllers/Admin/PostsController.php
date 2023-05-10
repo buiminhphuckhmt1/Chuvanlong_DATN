@@ -90,6 +90,6 @@ class PostsController extends Controller
         //delete bản ghi
         DB::table("comment_list")->where("id","=",$id)->delete();
         //di chuyển đến url khác
-        return redirect(url("backend/posts/view/$id"));
+        return redirect(url("backend/posts"));
     }
 }

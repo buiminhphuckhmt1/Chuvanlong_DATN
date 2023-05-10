@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 
@@ -19,11 +20,13 @@ class PostsftController extends Controller
     }
     //Create Post
     public function createPost(){
+        $user_id=Auth::id();
         $title =request("title");
         $category_id=request("category_id");
+        $description =request("description");
         $content =request("content");
         $status =request("status");
-        DB::table("post_list")->insert(["title"=>$title,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
+        DB::table("post_list")->insert(["title"=>$title,"user_id"=>$user_id,"description"=>$description,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
         return redirect(url("frontend/home"));
     }
     //Delete

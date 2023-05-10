@@ -1,5 +1,5 @@
 .header {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -404,12 +404,6 @@
 }
 .header-unfixed {
     background: #0054a6;
-}
-.sticky {
-    position: fixed;
-    background: #0054a6;
-    transition: background .1s linear;
-    box-shadow: rgba(16, 16, 16, .4196078431) 0 3px 9px;
 }
 .Header-controls,.Header-controls>li {
     display: inline-block;
