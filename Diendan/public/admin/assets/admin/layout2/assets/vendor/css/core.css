@@ -9125,7 +9125,9 @@ button.list-group-item-gray.active {
 .w-50 {
   width: 50% !important;
 }
-
+.w-60 {
+  width: 60% !important;
+}
 .w-75 {
   width: 75% !important;
 }
@@ -9145,7 +9147,9 @@ button.list-group-item-gray.active {
 .min-vw-100 {
   min-width: 100vw !important;
 }
-
+.min-vw-80 {
+  min-width: 80vw !important;
+}
 .h-px-20 {
   height: 20px !important;
 }
@@ -9241,7 +9245,9 @@ button.list-group-item-gray.active {
 .min-vh-100 {
   min-height: 100vh !important;
 }
-
+.min-vh-20 {
+  min-height: 20vh !important;
+}
 .flex-fill {
   flex: 1 1 auto !important;
 }

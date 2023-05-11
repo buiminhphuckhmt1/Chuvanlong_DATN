@@ -45,6 +45,9 @@ Route::post('reset-password', [ForgotController::class, 'submitResetPasswordForm
 //register class HomeController
 use App\Http\Controllers\Admin\HomeController;
 Route::get("backend/home",[HomeController::class,"index"])->Middleware("check_login");
+
+Route::post("backend/dashboard_postweek", [HomeController::class, 'dashboard_postweek']);
+
 //register class UsersController
 use App\Http\Controllers\Admin\UsersController;
 //Read
@@ -78,25 +81,6 @@ Route::post("backend/category/createPost",[CategoryController::class,"createPost
 //Delete
 Route::get("backend/category/delete/{id}",[CategoryController::class,"delete"])->Middleware("check_login");
 
-// Route::prefix('post')->group(function() {
-//     Route::get('', [PostsController::class, 'index'])
-//         ->name('admin.post.index');
-
-//     Route::get('create', [PostsController::class, 'create'])
-//         ->name('admin.post.create');
-
-//     Route::post('store', [PostsController::class, 'store'])
-//         ->name('admin.post.store');
-
-//     Route::get('edit/{id}', [PostsController::class, 'edit'])
-//         ->name('admin.post.edit');
-
-//     Route::put('update/{id}', [PostsController::class, 'update'])
-//         ->name('admin.post.update');
-
-//     Route::get('delete/{id}', [PostsController::class, 'delete'])
-//         ->name('admin.post.delete');
-// });
 //register class PostsController
  use App\Http\Controllers\Admin\PostsController;
 // //Read
@@ -116,12 +100,11 @@ Route::get("backend/category/delete/{id}",[CategoryController::class,"delete"])-
  // //Delete comment
  Route::get("backend/posts/deletecmt/{id}",[PostsController::class,"deletecmt"])->Middleware("check_login");
  //---
+
  Route::get("frontend/login",function(){
      return View::make("frontend.Login");
  });
-//sau khi an nut submit
 Route::post("frontend/login",function(){
-    //lay gia tri form
     $username = request("username");
     $password = request("password");
     if (!request("remember")==null) {
@@ -132,49 +115,44 @@ Route::post("frontend/login",function(){
     else
         return redirect(url("frontend/login?notify=invalid"));
 });
-//url: public/logout
 Route::get('frontend/logout',function(){
     Auth::logout();//Auth la doi tuong co san cua laravel
     return redirect(url("frontend/home"));
 });
-//url: public/admin
 Route::get("frontend",function(){
     return redirect(url("frontend/home"));
 });
-//register class HomeController
 use App\Http\Controllers\Frontend\HomeftController;
 Route::get("frontend/home",[HomeftController::class,"index"]);
 Route::get("frontend/follower",[HomeftController::class,"follow"]);
 Route::get("frontend/tag/{id}",[HomeftController::class,"tag"]);
+Route::get("frontend/alltag",[HomeftController::class,"alltag"]);
+Route::get("frontend/topview",[HomeftController::class,"topview"]);
 Route::get("frontend/old",[HomeftController::class,"fitterold"]);
 Route::get("frontend/new",[HomeftController::class,"fitternew"]);
 Route::get("frontend/question/{id}",[HomeftController::class,"viewquestion"]);
+Route::post("frontend/comment/{id}",[HomeftController::class,"comment"]);
+Route::get("frontend/deletecmt/{id}",[HomeftController::class,"deletecmt"])->Middleware("_login");
+Route::post("frontend/search",[HomeftController::class,"search"]);
+//Route::get("frontend/users/personal/{id}",[UsersController::class,"personal"])->Middleware("_login");
+//Route::post("frontend/users/personalPost/{id}",[UsersController::class,"personalPost"])->Middleware("_login");
 
-Route::get("frontend/users/personal/{id}",[UsersController::class,"personal"])->Middleware("check_login");
-//Create Get
-Route::post("frontend/users/personalPost/{id}",[UsersController::class,"personalPost"])->Middleware("check_login");
 
 use App\Http\Controllers\Frontend\RegisterController;
-//Create Get
 Route::get("frontend/register",[RegisterController::class,"index"]);
-//Create Post
 Route::post("frontend/register/createPost",[RegisterController::class,"createPost"]);
 
 use App\Http\Controllers\Frontend\PostsftController;
-//Read
-//Route::get("frontend/posts",[PostsftController::class,"index"])->Middleware("_login");
-//Update Get
-//Route::get("backend/posts/update/{id}",[PostsController::class,"update"])->Middleware("_login");
-//Update Post
-//Route::post("backend/posts/updatePost/{id}",[PostsController::class,"updatePost"])->Middleware("_login");
-//Create Get
 Route::get("frontend/posts/create",[PostsftController::class,"create"])->Middleware("_login");
-//Create Post
 Route::post("frontend/posts/createPost",[PostsftController::class,"createPost"])->Middleware("_login");
-//Delete
-//Route::get("backend/posts/delete/{id}",[PostsController::class,"delete"])->Middleware("_login");
-//---
 Route::get("frontend/posts/post/comment/{id}",[PostsftController::class,"comment"])->Middleware("_login"); 
+
+use App\Http\Controllers\Frontend\PersonalController;
+Route::get("frontend/personal/{id}",[PersonalController::class,"personal"])->Middleware("_login");
+Route::get("frontend/mypost/{id}",[PersonalController::class,"mypost"])->Middleware("_login");
+Route::post("frontend/personalPost/{id}",[PersonalController::class,"personalPost"])->Middleware("_login");
+Route::get("frontend/delete/{id}",[PersonalController::class,"delete"])->Middleware("_login");
+
 
 Route::get("frontend/login",function(){
     return View::make("frontend.Login");

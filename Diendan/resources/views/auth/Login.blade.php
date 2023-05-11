@@ -80,7 +80,7 @@
 				<div class="alert alert-danger">Hãy kiểm tra lại tài khoản và mật khẩu!</div>
 				@endif
 
-              <form id="formAuthentication" class="mb-3" action="" method="POST">
+              <form id="formAuthentication" class="mb-3" action="" method="POST" autocomplete="off">
               	@csrf
                 <div class="mb-3">
                   <label for="username" class="form-label">Tài khoản</label>

@@ -7,7 +7,7 @@ lang="en"
   data-assets-path="../assets/frontend/layout2/assets"
   data-template="vertical-menu-template-free">
 <head>
-    <meta charset="UTF-8" />
+<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FAQFORUM</title>
     <link rel="shortcut icon"  type="image/x-icon" href="{{ asset('template/images/favicon_forum.jpg')}}">
@@ -36,6 +36,7 @@ lang="en"
         @include("frontend.Footer")
     </div>
     <script src="{{ asset('template/libs/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('template/libs/tinymce_6.4.2/tinymce.min.js')}}" referrerpolicy="origin"></script>
     <script src="{{ asset('template/libs/bootstrap/popper.min.js')}}"></script>
     <!-- <script src="{{ asset('template/libs/bootstrap/bootstrap.min.js')}}"></script> -->
     <script src="{{ asset('template/libs/swiper/swiper-bundle.min.js')}}"></script>
@@ -48,7 +49,11 @@ lang="en"
 
     <script src="{{ asset('admin/assets/admin/layout2/assets/vendor/js/menu.js') }}"></script>
     <!-- endbuild -->
-
+    <script>
+        tinymce.init({
+            selector: '#comment'
+        });
+    </script>
     <!-- Vendors JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 

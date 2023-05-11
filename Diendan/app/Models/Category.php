@@ -20,4 +20,12 @@ class Category extends Model
     {
         return $this->hasMany(Post::class, 'category_id', 'id');
     }
+    public function postsweek()
+    {
+        return $this->hasMany(Post::class, 'category_id', 'id');
+    }
+    public function postsnow()
+    {
+        return $this->hasMany(Post::class, 'category_id', 'id');
+    }
 }

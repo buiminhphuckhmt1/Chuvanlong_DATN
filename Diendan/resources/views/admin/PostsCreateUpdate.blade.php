@@ -21,18 +21,11 @@
 					        <textarea class="form-control" id="description" name="description">{{ isset($record->description)?$record->description:'' }}</textarea>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="name">Nội dung</label>
-					        <textarea class="form-control" id="content" name="content">{{ isset($record->content)?$record->content:'' }}</textarea>
-                            <script type="text/javascript">
-                                CKEDITOR.replace("content");
-                            </script>
-                          </div>
-                          <div class="mb-3 col-md-6">
                           <label for="name">Danh mục</label>
                             <select class="form-select" name="category_id" id="category_id" data-select2-id="category_id" tabindex="-1" aria-hidden="true">
                                 <!-- <option value="value="{{$record->id }}"></option> -->
                                 @foreach($datacate as $row)
-                                <option value="{{$row->id }}" @if($record->category_id=='{{$row->id }}'){{ 'selected' }} @endif>{{ $row->name }}</option>
+                                <option value="{{$row->id }}" {{ ( $row->id == $record->category_id) ? 'selected' : '' }}>{{ $row->name }}</option>
                                 @endforeach    
                             </select>
                           </div>
@@ -42,6 +35,13 @@
                                 <option value="1" @if($record->status=='1'){{ 'selected' }} @endif>Hiện thị</option>
                                 <option value="0" @if($record->status=='0'){{ 'selected' }} @endif>Ẩn</option>
                             </select>
+                          </div>
+                          <div class="mb-3 col-md-12">
+                          <label for="name">Nội dung</label>
+					        <textarea class="form-control" id="content" name="content">{{ isset($record->content)?$record->content:'' }}</textarea>
+                            <script type="text/javascript">
+                                CKEDITOR.replace("content");
+                            </script>
                           </div>
                         </div>
                         <div class="mt-2">

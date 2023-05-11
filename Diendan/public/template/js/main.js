@@ -43,6 +43,19 @@ function scrollTop() {
 		return false;
 	});
 }
+function scrollDown() {
+	$(window).scroll(function () {
+		let scrollY = $(window).scrollDown();
+	});
+
+	$('#scrollToDown').click(function () {
+		window.scrollTo({
+			botton: 1450,
+			behavior: 'smooth'
+		});
+		return false;
+	});
+}
 
 function scrollSticky() {
 	$(window).scroll(function () {
@@ -109,6 +122,7 @@ function textarea__autoHeight() {
 $(document).ready(function () {
 	mobileMenu();
 	scrollTop();
+	scrollDown();
 	//scrollSticky();
 	dropmenu();
 	if ($(window).width() < 992) {

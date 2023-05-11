@@ -3,6 +3,11 @@
 <div class="content-wrapper ">
     <div class="container-xxl flex-grow-1 container-p-y">
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Quản lý bảng / Quản lý bài thảo luận /</span>  Bài thảo luận chi tiết</h4>
+        
+        <div class="mb-4">
+            <a  href="{{ url('backend/posts/update/'.$dataview->id) }}"><button type="button" class="btn btn-success"><i class="bx bx-edit-alt me-1"></i>Sửa</button></a>
+            <a  href="{{ url('backend/posts/delete/'.$dataview->id) }}"><button type="button" class="btn btn-danger"onclick="return window.confirm('Bạn có xác nhận xóa không');"><i class="bx bx-trash me-1"></i>Xóa</button></a>
+        </div>
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Bài thảo luận chi tiết</h4>

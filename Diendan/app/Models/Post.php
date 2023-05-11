@@ -14,7 +14,7 @@ class Post extends Model
         'title',
         'description',
         'content',
-        //'view_count',
+        'view_count',
         'user_id',
         'category_id',
         'status',
@@ -33,6 +33,6 @@ class Post extends Model
 
     public function comment()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comments::class, 'post_id','id');
     }
 }

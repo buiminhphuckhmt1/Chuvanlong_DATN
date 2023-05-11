@@ -88,8 +88,9 @@ class PostsController extends Controller
     }
     public function deletecmt($id){
         //delete bản ghi
+        $id_p=Comments::where('id',$id)->first();
         DB::table("comment_list")->where("id","=",$id)->delete();
         //di chuyển đến url khác
-        return redirect(url("backend/posts"));
+        return redirect(url("backend/posts/view/$id_p->post_id"));
     }
 }

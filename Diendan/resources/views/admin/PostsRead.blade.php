@@ -11,7 +11,7 @@
               <div class="alert alert-primary" role="alert">Tạo bài thảo luận thành công</div>
               @endif
               @if(Request::get("notify") == "update-success")
-                <div class="alert alert-primary" role="alert">Cập nhật tbài thảo luận thành công</div>
+                <div class="alert alert-primary" role="alert">Cập nhật bài thảo luận thành công</div>
               @endif
               @if(Request::get("notify") == "delete-success")
               <div class="alert alert-danger">Đã xóa bài thảo luận !</div>

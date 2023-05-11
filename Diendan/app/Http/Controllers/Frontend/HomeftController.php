@@ -8,122 +8,81 @@ use App\Models\Comments;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use DB;
 
 
 class HomeftController extends Controller
 {
     public function index(){
-        $data = Post::paginate(10);
-        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        $data = Post::where("status","=","1")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",compact('data'),["datacate"=>$datacate]);
     }
     public function fitterold(){
-        $data = Post::orderBy("date_updated","asc")->paginate(10);
-        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        $data = Post::where("status","=","1")->orderBy("date_updated","asc")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function fitternew(){
-        $data = Post::orderBy("date_updated","desc")->paginate(10);
-        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        $data = Post::where("status","=","1")->orderBy("date_updated","desc")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function follow(){
         $data = Post::where("follow","=",1)->orderBy("id","desc")->paginate(10);
-        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function tag($id){
-        $data = Post::where("category_id","=",$id)->orderBy("category_id","desc")->paginate(10);
-        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(10);
+        $data = Post::where("status","=","1")->where("category_id","=",$id)->orderBy("category_id","desc")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
+        return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
+    }
+    public function topview(){
+        $data = Post::where("status","=","1")->orderBy('view_count', 'DESC')->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function viewquestion($id){
         $post = Post::where('id', $id)->first();
-        // $post->update([
-        //     'view_count' => $post->view_counts+ 1
-        // ]);
-
+        $post->increment('view_count');
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         $relate = Post::where('category_id', $post->category_id)->take(2)->inRandomOrder()->get();
 
         $comments = Comments::where("post_id", $post->id)->paginate(10);
+        $action = url("frontend/comment/$id");
 
-        return view('frontend.Questiondetail', compact('post', 'relate', 'comments'));
+        return view('frontend.Questiondetail', compact('post', 'relate', 'comments','datacate'));
     }
-    public function comment(Request $request, $id)
+    public function alltag(){
+        $post = Category::where("status","=","1")->get();
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
+        $date = Carbon::now();
+        $post_date = Post::where('date_created', '>=', $date)->count();
+        return view('frontend.Tag', compact('post','datacate','post_date'));
+    }
+    public function search(){
+        $key_search=request("key_search");
+        $data = Post::where("status","=",1)->where('title','like','%' .$key_search. '%')->paginate(10);
+        $countdata = Post::where("status","=",1)->where('title','like','%' .$key_search. '%')->count();
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
+        return view("frontend.Searchtitle",["data"=>$data,"datacate"=>$datacate,"countdata"=>$countdata,"key_search"=>$key_search]);
+    }
+    public function comment($id)
     {
-        Comment::create([
-            'content' => $request->get('content'),
-            'user_id' => Auth::id(),
-            'post_id' => $id
-        ]);
-        return redirect()->back();
+        $user_id=Auth::id();
+        $comment =request("comment");
+        $post_id=$id;
+        DB::table("comment_list")->insert(["comment"=>$comment,"user_id"=>$user_id,"post_id"=>$post_id]);
+        return redirect(url("frontend/question/$id"));
     }
-    //Update Get
-    public function update($id){
-        //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào update)
-        $action = url("backend/posts/updatePost/$id");
-        //lấy một bản ghi -> sử dụng hàm first()
-        $record = DB::table("post_list")->where("id","=",$id)->first();
-        //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsCreateUpdate",["record"=>$record,"action"=>$action]);
-    }
-    //Update Post
-    public function updatePost($id){
-        $avatar =request("avatar");
-        $firstname =request("firstname");
-        $middlename =request("middlename");
-        $lastname =request("lastname");
-        $type =request("type");
-        $username =request("username");
-        $password = request("password");
-        //update name
-        DB::table("post_list")->where("id","=",$id)->update(["avatar"=>$avatar],["firstname"=>$firstname],["middlename"=>$middlename],["lastname"=>$lastname],["type"=>$type],["username"=>$username]);
-        //nếu password không rỗng thì update password
-        if($password != ""){
-            //mã hóa password
-            $password = Hash::make($password);
-            //update password
-            DB::table("post_list")->where("id","=",$id)->update(["password"=>$password]);
-        }
-        //di chuyển đến url khác
-        return redirect(url("backend/posts"));
-    }
-    //Create Get
-    public function create(){
-        //tạo biến $action để đưa vào thuộc tính action của thẻ form (để biết được lúc nào create, lúc nào create)
-        $action = url("backend/posts/createPost");
-        //gọi view, truyền dữ liệu ra view
-        return view("admin.PostsCreateUpdate",["action"=>$action]);
-    }
-    //Create Post
-    public function createPost(){
-        $avatar =request("avatar");
-        $firstname =request("firstnamename");
-        $middlename =request("middlename");
-        $lastname =request("lastname");
-        $type =request("type");
-        $username =request("username");
-        $password = request("password");
-        //mã hóa password
-        $password = Hash::make($password);
-        //kiểm tra xem email đã tồn tại trong csdl chưa, nếu chưa tồn tại thì mới cho update
-        //Count() Đếm số bản ghi
-        $check = DB::table("post_list")->where("username","=",$username)->Count();
-        if($check == 0){
-            //update
-            DB::table("post_list")->insert(["avatar"=>$avatar],["firstnamename"=>$firstname],["middlename"=>$middlename],["lastname"=>$lastname],["username"=>$username],["type"=>$type],["password"=>$password]);
-        }else
-            return redirect(url("backend/posts/create?notify=email-exists"));
-        //di chuyển đến url khác
-        return redirect(url("backend/posts"));
-    }
-    //Delete
-    public function delete($id){
+    public function deletecmt($id){
         //delete bản ghi
-        DB::table("post_list")->where("id","=",$id)->delete();
+        $id_p=Comments::where('id',$id)->first();
+        DB::table("comment_list")->where("id","=",$id)->delete();
         //di chuyển đến url khác
-        return redirect(url("backend/posts"));
+        return redirect(url("frontend/question/$id_p->post_id"));
     }
 }
 

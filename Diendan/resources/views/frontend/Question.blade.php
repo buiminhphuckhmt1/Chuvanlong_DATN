@@ -27,9 +27,9 @@
                               <div class="col mb-0">
                                 <label for="content"> Nội dung</label>
                                 <textarea class="form-control" id="content" placeholder="Nhập nội dung" name="content"></textarea>
-                                <script type="text/javascript">
+                                <!-- <script type="text/javascript">
                                   CKEDITOR.replace("content");
-                                </script>
+                                </script> -->
                               </div>
                             </div>
                             <div class="row g-2">

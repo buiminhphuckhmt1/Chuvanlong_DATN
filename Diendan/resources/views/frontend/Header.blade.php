@@ -7,7 +7,7 @@
                         <li class="nav-items navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="true">
                     <div class="avatar avatar-online">
-                      <img src="http://localhost/Chuvanlong_DATN/Diendan/public/upload/user/logo.png" alt="" class="w-px-40 h-px-40 rounded-circle">
+                      <img src="{{asset('upload/user/'.$user->avatar)}}" alt="" class="w-px-40 h-px-40 rounded-circle">
                     </div>
                   </a>
                   <ul  class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
@@ -34,7 +34,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="http://localhost/Chuvanlong_DATN/Diendan/public/backend/users/personal/1">
+                      <a class="dropdown-item" href="{{url('frontend/personal/'.$user->id)}}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">Thông tin tài khoản</span>
                       </a>
@@ -78,7 +78,8 @@
                         </div>
                         <ul class="product_item">
                             <li class="list_item" ><a href="{{ url('frontend/new')}}" class="product_link">Bài viết mới nhất </a></li>
-                            <li class="list_item" ><a href="{{ url('frontend/follower')}}" class="product_link">Bài viết đang theo dõi</a></li>
+                            @if (Auth::check())<li class="list_item" ><a href="{{ url('frontend/follower')}}" class="product_link">Bài viết đang theo dõi</a></li>@endif
+                            <li class="list_item" ><a href="{{ url('frontend/topview')}}" class="product_link">Bài viết xem nhiều nhất</a></li>
                         </ul>
                     </div>
                     <div class="nav">
@@ -90,7 +91,13 @@
                                 </ul>
                             </li>
                             <li class="list_item" v-for="item in menuList">
-                                <a href="item.link" class="nav_link"> Thêm bài viết</a>
+                                <a href="javascrip:;" class="nav_link">Bài thảo luận</a>
+                                <ul class="product_drop">
+                                    <li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link"></a></li>
+                                </ul>
+                            </li>
+                            <li class="list_item" v-for="item in menuList">
+                                <a href="{{url('frontend/posts/create')}}" class="nav_link"> Tạo bài thảo luận</a>
                                 <ul class="product_drop">
                                     <li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link"></a></li>
                                 </ul>
@@ -104,15 +111,16 @@
                     </div>
                 </div>
                 <div class="search_drop">
-                    <form action="">
+                    <form method="post" action="{{ url('frontend/search') }}" id="search_form">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="search_wrapper">
                             <div class="title">
                                 Bạn đang cần tìm kiếm thông tin?
                             </div>
                             <div class="input_box">
-                                <input class="input-search" type="text" name="" id="" placeholder="Nhập từ khóa tìm kiếm...">
-                                <button class="btn-search">
-                                    <img src="images/search.svg" alt="">
+                                <input class="input-search" type="text" name="key_search" id="" placeholder="Nhập từ khóa tìm kiếm...">
+                                <button type="submit" value="submit" form="search_form" class="btn-search">
+                                    <img src="{{ asset('template/images/search.svg')}}" alt="">
                                 </button>
                             </div>
                         </div>
