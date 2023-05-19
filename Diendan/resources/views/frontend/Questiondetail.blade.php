@@ -64,7 +64,7 @@
                 </div>
               </div>
           @endforeach
-              <div class="p-4">
+              <div id="comment-box" class="p-4">
                       <form method="post" action="{{ url('frontend/comment', $post->id) }}" id="comt_form">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row g-2">
@@ -89,7 +89,7 @@
             <div class="ques-d-right" >
               <div style="position: relative;">
                 <nav class="DiscussionPage-nav" style="position: fixed; top:200px;">
-                  <button id="scrollToDown" type="botton" class="btn btn-danger">Trả lời</button>
+                  <a href="#comment-box"><button id="scrollToDown" type="botton" class="btn btn-danger">Trả lời</button></a>
                 </nav>
               </div>
             </div>

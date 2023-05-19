@@ -44,16 +44,14 @@ function scrollTop() {
 	});
 }
 function scrollDown() {
-	$(window).scroll(function () {
-		let scrollY = $(window).scrollDown();
-	});
-
-	$('#scrollToDown').click(function () {
-		window.scrollTo({
-			botton: 1450,
-			behavior: 'smooth'
-		});
-		return false;
+	$("a[href^='#']").click(function(e) {
+		e.preventDefault();
+		
+		var position = $($(this).attr("href")).offset().top;
+	
+		$("body, html").animate({
+			scrollTop: position
+		} /* speed */ );
 	});
 }
 

@@ -45,6 +45,8 @@ Route::post('reset-password', [ForgotController::class, 'submitResetPasswordForm
 //register class HomeController
 use App\Http\Controllers\Admin\HomeController;
 Route::get("backend/home",[HomeController::class,"index"])->Middleware("check_login");
+// Route::get('backend/home',[HomeController::class,"dashboard_get"]);
+// Route::post('backend/home',[HomeController::class,"dashboard_post"]);
 
 Route::post("backend/dashboard_postweek", [HomeController::class, 'dashboard_postweek']);
 
