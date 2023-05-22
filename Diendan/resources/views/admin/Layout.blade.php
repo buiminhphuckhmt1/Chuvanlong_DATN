@@ -377,14 +377,16 @@
       var chart = new ApexCharts(document.querySelector("#incomeChart"), options);
       chart.render();
       $(function(){
-
+        var _ydata=JSON.parse('{!! json_encode($datalbca) !!}');
+        var _xdata=JSON.parse('{!! json_encode($datadtca) !!}');
+        var _zdata={!! json_encode($percenca) !!};
       var options = {
         chart: {
           height: 165,
         type: 'donut'
       },
-      labels: ["PHP","VB.NET","Python","JavaScript","Jquery","android","ios"],
-      series: [2,0,1,0,1,0,0],
+      labels: _ydata,
+      series: _xdata,
       colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success, config.colors.primary, config.colors.secondary, config.colors.info],
       stroke: {
         width: 7,
@@ -426,9 +428,9 @@
               total: {
                 show: true,
                 fontSize: '0.8125rem',
-                label: 'Weekly',
+                label: '7 ngày',
                 formatter: function (w) {
-                  return '38%';
+                  return _zdata + '%';;
                 }
               }
             }

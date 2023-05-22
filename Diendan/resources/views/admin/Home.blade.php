@@ -106,13 +106,17 @@
 					<div class="card h-100">
 						<div class="card-header d-flex align-items-center justify-content-between pb-0">
 						<div class="card-title mb-0">
-              <h5 class="m-0 me-2">Thống kê bài viết</h5>
+              <h5 class="m-0 me-2">Thống kê bài viết theo danh mục</h5>
 							<small class="text-muted">Tổng số bài viết: {{$count_post}}</small></br>
 						</div>
 						</div>
 						<div class="card-body">
-            <div class="d-flex justify-content-center align-items-center mb-3">
-              <div id="orderStatisticsChart"></div>
+            <div class="d-flex justify-content-between align-items-center mb-3" style="position: relative;">
+                        <div class="d-flex flex-column align-items-center gap-1">
+                          <h2 class="mb-2">{{($percenca*$count_post)/100}}</h2>
+                          <span >Bài viết &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        </div>
+                        <div id="orderStatisticsChart"></div>
             </div>
 						<ul class="p-0 m-0 mt-3">
 							@foreach($count_tag as $row)
