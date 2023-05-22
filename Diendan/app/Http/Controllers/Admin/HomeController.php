@@ -22,18 +22,19 @@ class HomeController extends Controller
         $count_post_type=Post::where('status','=','1')->count();
         $count_cmt=Comments::count();
         $date = Carbon::now()->subDays(7);
-        $post_date = Post::where('date_created', '>=', $date)->count();
-        $post_week = Post::where('date_created', '>=', $date)->get();
-        $result =Category::limit(4)->select('name')->get();
+        $post_date = Post::where('date_updated', '>=', $date)->count();
+        $post_week = Post::where('date_updated', '>=', $date)->get();
+        $result =Category::select('name')->get();
         $data = [];
  
-        foreach($result as $row) {
+        foreach($count_tag as $row) {
             $data['label'][] = $row->name;
-            //$data['data'][] = (int) $row->post->count;
+            $data['data'][] = (int) $row->posts->count();
         }
  
         $data['chart_data'] = json_encode($data);
-        return view("admin.Home",["data"=>$data,"count_post_type"=>$count_post_type,"count_tag1"=>$count_tag1,"count_tag"=>$count_tag,"post_date"=>$post_date,"count_cmt"=>$count_cmt,"count_user"=>$count_user,"count_post_view"=>$count_post_view,"count_post"=>$count_post] );
+        //dd($data);
+        return view("admin.Home",compact('data'),["count_post_type"=>$count_post_type,"count_tag1"=>$count_tag1,"count_tag"=>$count_tag,"post_date"=>$post_date,"count_cmt"=>$count_cmt,"count_user"=>$count_user,"count_post_view"=>$count_post_view,"count_post"=>$count_post] );
     }
     // public function dashboard_post(Request $request){
 
