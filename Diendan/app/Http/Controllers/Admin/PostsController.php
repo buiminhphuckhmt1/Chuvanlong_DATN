@@ -52,12 +52,11 @@ class PostsController extends Controller
     public function updatePost($id){
         $title =request("title");
         $description =request("description");
-        $user_id=Auth::id();
         $category_id =request("category_id");
         $content =request("content");
         $status =request("status");
         //update name
-        DB::table("post_list")->where("id","=",$id)->update(["title"=>$title,"user_id"=>$user_id,"description"=>$description,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
+        DB::table("post_list")->where("id","=",$id)->update(["title"=>$title,"description"=>$description,"category_id"=>$category_id,"content"=>$content,"status"=>$status]);
         return redirect(url("backend/posts/?notify=update-success"));
     }
     //Create Get

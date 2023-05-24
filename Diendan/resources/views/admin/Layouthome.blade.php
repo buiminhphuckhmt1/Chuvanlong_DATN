@@ -297,13 +297,14 @@
 
     <!-- Main JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/main.js') }}"></script>
-    <script type="text/javascript">
-      
+  <script type="text/javascript">
+        var _edata=JSON.parse('{!! json_encode($datacountpost) !!}');
+        var _fdata=JSON.parse('{!! json_encode($datadatepost) !!}');
        var options = {
         series: [
         {
-          name: '',
-          data: [0]
+          name: 'Bài viết',
+          data: _edata,
         }
       ],
       chart: {
@@ -357,7 +358,8 @@
         }
       },
       xaxis: {
-        categories: ['2', '3', '4', '5', '6', '7', 'CN'],
+        categories: _fdata,
+        min:1,
         axisBorder: {
           show: false
         },
@@ -369,12 +371,92 @@
         labels: {
           show: false
         },
-        min: 10,
-        max: 50,
+        min: 0,
+        max: 20,
         tickAmount: 4
       }
         };
       var chart = new ApexCharts(document.querySelector("#incomeChart"), options);
+      chart.render();
+      var _gdata=JSON.parse('{!! json_encode($datamcountpost) !!}');
+        var _hdata=JSON.parse('{!! json_encode($datampost) !!}');
+       var options = {
+        series: [
+        {
+          name: 'Bài viết',
+          data: _gdata,
+        }
+      ],
+      chart: {
+        height: 165,
+        parentHeightOffset: 0,
+        parentWidthOffset: 0,
+        toolbar: {
+          show: false
+        },
+        type: 'area'
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: 2,
+        curve: 'smooth'
+      },
+      legend: {
+        show: false
+      },
+      markers: {
+        size: 4,
+        colors: 'transparent',
+        strokeColors: 'transparent',
+        strokeWidth: 4,
+        discrete: [
+          {
+            fillColor: config.colors.white,
+            seriesIndex: 0,
+            dataPointIndex: 7,
+            strokeColor: config.colors.danger,
+            strokeWidth: 2,
+            size: 6,
+            radius: 8
+          }
+        ],
+        hover: {
+          size: 7
+        }
+      },
+      colors: [config.colors.danger],
+      grid: {
+        // borderColor: borderColor,
+        strokeDashArray: 3,
+        padding: {
+          top: -20,
+          bottom: -8,
+          left: 8,
+          right: 8
+        }
+      },
+      xaxis: {
+        categories: _hdata,
+        min:1,
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+      },
+      yaxis: {
+        labels: {
+          show: false
+        },
+        min: 0,
+        max: 20,
+        tickAmount: 4
+      }
+        };
+      var chart = new ApexCharts(document.querySelector("#incomemonthChart"), options);
       chart.render();
       $(function(){
         var _ydata=JSON.parse('{!! json_encode($datalbca) !!}');

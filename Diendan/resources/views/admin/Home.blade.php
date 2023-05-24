@@ -159,27 +159,45 @@
 					</div>
 					<div class="col-md-6 col-lg-4 order-0 mb-4">
             
-                  <div class="card">
-                  <h5 class="card-header m-0 me-2 pb-3">Thống kê bài viết theo tuần</5>
-                    <div class="card-body px-0">
-                      <div class="tab-content p-0">
-                        <div class="tab-pane fade show active" id="navs-tabs-line-card-income" role="tabpanel">
-                          <div class="d-flex p-4 pt-3">
-                            <div>
-                              <div class="d-flex align-items-center">
-                                <h6 class="mb-0 me-1">{{$post_date}}</h6>
+                <div class="card d-block">
+                  <h5 class="card-header m-0 me-2 pb-3">Thống kê bài viết theo tuần</h5>
+                  <div class="card-body px-0">
+                    <div class="tab-content p-0">
+                      <div class="tab-pane fade show active" >
+                        <div class="d-flex p-4 pt-3">
+                          <div>
+                            <div class="d-flex align-items-center">
                                 <!-- <small class="text-success fw-semibold">
                                   <i class="bx bx-chevron-up"></i>
                                   42.9%
                                 </small> -->
-                              </div>
                             </div>
                           </div>
-                          <div id="incomeChart"></div>
                         </div>
+                        <div id="incomeChart"></div>
                       </div>
                     </div>
                   </div>
+
+                  <h5 class="card-header m-0 me-2 pb-3">Thống kê bài viết theo tháng</h5>
+                  <div class="card-body px-0">
+                    <div class="tab-content p-0">
+                      <div class="tab-pane fade show active" >
+                        <div class="d-flex p-4 pt-3">
+                          <div>
+                            <div class="d-flex align-items-center">
+                                <!-- <small class="text-success fw-semibold">
+                                  <i class="bx bx-chevron-up"></i>
+                                  42.9%
+                                </small> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div id="incomemonthChart"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 					</div>
 					<!--/ Expense Overview -->
 				</div>
