@@ -262,7 +262,7 @@
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
-         @yield("do-du-lieu-vao-layout")
+         @yield("do-du-lieu-vao-layout-home")
             <!-- / Content -->
 
             <!-- Footer -->
@@ -297,6 +297,151 @@
 
     <!-- Main JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/main.js') }}"></script>
+    <script type="text/javascript">
+      
+       var options = {
+        series: [
+        {
+          name: '',
+          data: [0]
+        }
+      ],
+      chart: {
+        height: 165,
+        parentHeightOffset: 0,
+        parentWidthOffset: 0,
+        toolbar: {
+          show: false
+        },
+        type: 'area'
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        width: 2,
+        curve: 'smooth'
+      },
+      legend: {
+        show: false
+      },
+      markers: {
+        size: 4,
+        colors: 'transparent',
+        strokeColors: 'transparent',
+        strokeWidth: 4,
+        discrete: [
+          {
+            fillColor: config.colors.white,
+            seriesIndex: 0,
+            dataPointIndex: 7,
+            strokeColor: config.colors.danger,
+            strokeWidth: 2,
+            size: 6,
+            radius: 8
+          }
+        ],
+        hover: {
+          size: 7
+        }
+      },
+      colors: [config.colors.danger],
+      grid: {
+        // borderColor: borderColor,
+        strokeDashArray: 3,
+        padding: {
+          top: -20,
+          bottom: -8,
+          left: 8,
+          right: 8
+        }
+      },
+      xaxis: {
+        categories: ['2', '3', '4', '5', '6', '7', 'CN'],
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        },
+      },
+      yaxis: {
+        labels: {
+          show: false
+        },
+        min: 10,
+        max: 50,
+        tickAmount: 4
+      }
+        };
+      var chart = new ApexCharts(document.querySelector("#incomeChart"), options);
+      chart.render();
+      $(function(){
+        var _ydata=JSON.parse('{!! json_encode($datalbca) !!}');
+        var _xdata=JSON.parse('{!! json_encode($datadtca) !!}');
+        var _zdata={!! json_encode($percenca) !!};
+      var options = {
+        chart: {
+          height: 165,
+        type: 'donut'
+      },
+      labels: _ydata,
+      series: _xdata,
+      colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success, config.colors.primary, config.colors.secondary, config.colors.info],
+      stroke: {
+        width: 7,
+      },
+      dataLabels: {
+        enabled: false,
+        formatter: function (val, opt) {
+          return parseInt(val) + '%';
+        }
+      },
+      legend: {
+        show: false
+      },
+      grid: {
+        padding: {
+          top: 0,
+          bottom: 0,
+          right: 15
+        }
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            size: '70%',
+            labels: {
+              show: true,
+              value: {
+                fontSize: '1.5rem',
+                fontFamily: 'Public Sans',
+                offsetY: -15,
+                formatter: function (val) {
+                  return parseInt(val) + '%';
+                }
+              },
+              name: {
+                offsetY: 20,
+                fontFamily: 'Public Sans'
+              },
+              total: {
+                show: true,
+                fontSize: '0.8125rem',
+                label: '7 ngày',
+                formatter: function (w) {
+                  return _zdata + '%';;
+                }
+              }
+            }
+          }
+        }
+      }
+    };
+        var chart = new ApexCharts(document.querySelector("#orderStatisticsChart"), options);
+        chart.render();
+      });
+    </script>
     <!-- Page JS -->
     <!-- <script src="{{ asset('admin/assets/admin/layout2/assets/js/dashboards-analytics.js') }}"></script> -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/pages-account-settings-account.js') }}"></script>

@@ -1,6 +1,6 @@
 <!-- load file layout.badle.php vào đây -->
-@extends("admin.Layout")
-@section("do-du-lieu-vao-layout")
+@extends("admin.Layouthome")
+@section("do-du-lieu-vao-layout-home")
 <?php
       $user = Auth::user()
     ?>
@@ -117,6 +117,7 @@
                           <span >Bài viết &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
                         </div>
                         <div id="orderStatisticsChart"></div>
+                        
             </div>
 						<ul class="p-0 m-0 mt-3">
 							@foreach($count_tag as $row)
