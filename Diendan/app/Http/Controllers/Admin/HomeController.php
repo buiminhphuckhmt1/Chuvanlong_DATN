@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Comments;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Visit;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -19,7 +20,7 @@ class HomeController extends Controller
         $count_user=DB::table('users')->count();
         $count_tag=Category::get();
         $count_tag1=post::select('id','category_id')->where('date_created', '>=', $date)->get()->groupBy(function($count_tag1){
-            return ($count_tag1->category_id);
+            return ($count_tag1->category->name);
         });
         $count_post=Post::count();
         $count_post_type=Post::select('id','date_created',)->orderBy('date_created','asc')->where('date_created', '>=', $date)->get()->groupBy(function($count_post_type){
@@ -35,7 +36,7 @@ class HomeController extends Controller
         $datalbca = [];
         $datadtca=[];
         foreach($count_tag1 as $row=>$values) {
-            $datalbca[] = $values;
+            $datalbca[] = $row;
             $datadtca[] = count($values);
         }
         $datadatepost = [];
@@ -54,7 +55,18 @@ class HomeController extends Controller
         }
         $percenca=0;
         $percenca=($count_post_type->count()/$count_post)*100;
-        return view("admin.Home",compact('datalbca','datadtca','percenca','datadatepost','datacountpost','datampost','datamcountpost'),["count_tag"=>$count_tag,"post_date"=>$post_date,"count_cmt"=>$count_cmt,"count_user"=>$count_user,"count_post_view"=>$count_post_view,"count_post"=>$count_post] );
+        $user_ip_address= '192.168.1.1';
+        $visit_current= Visit::select('date_visited')->get()->groupBy(function($visit_current){
+            return Carbon::parse($visit_current->date_visited)->format('M'); });
+        $visit_count=$visit_current->count();
+        $datavisit = [];
+        $datavisitcount=[];
+ 
+        foreach($visit_current as $months=> $values) {
+            $datavisit[] = $months;
+            $datavisitcount[]=count($values);
+        }
+        return view("admin.Home",compact('datavisitcount','datavisit','visit_count','datalbca','datadtca','percenca','datadatepost','datacountpost','datampost','datamcountpost'),["count_tag"=>$count_tag,"post_date"=>$post_date,"count_cmt"=>$count_cmt,"count_user"=>$count_user,"count_post_view"=>$count_post_view,"count_post"=>$count_post] );
     }
     // public function dashboard_post(Request $request){
 

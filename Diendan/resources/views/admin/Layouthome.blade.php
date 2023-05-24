@@ -298,6 +298,260 @@
     <!-- Main JS -->
     <script src="{{ asset('admin/assets/admin/layout2/assets/js/main.js') }}"></script>
   <script type="text/javascript">
+    var _odata=JSON.parse('{!! json_encode($datavisit) !!}');
+    var _ldata=JSON.parse('{!! json_encode($datavisitcount) !!}');
+    var options={
+      series: [
+        {
+          name: 'Truy cập',
+          data: _ldata
+        },
+      ],
+      chart: {
+        height: 300,
+        stacked: true,
+        type: 'bar',
+        toolbar: { show: false }
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '33%',
+          borderRadius: 12,
+          startingShape: 'rounded',
+          endingShape: 'rounded'
+        }
+      },
+      colors: [ config.colors.success],
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 6,
+        lineCap: 'round',
+        colors: config.colors.white
+      },
+      legend: {
+        show: true,
+        horizontalAlign: 'left',
+        position: 'top',
+        markers: {
+          height: 8,
+          width: 8,
+          radius: 12,
+          offsetX: -3
+        },
+        labels: {
+          colors: config.colors.axisColor,
+        },
+        itemMargin: {
+          horizontal: 10
+        }
+      },
+      grid: {
+        borderColor: config.colors.borderColor,
+        padding: {
+          top: 0,
+          bottom: -8,
+          left: 20,
+          right: 20
+        }
+      },
+      xaxis: {
+        categories: _odata,
+        labels: {
+          style: {
+            fontSize: '13px',
+            colors: config.colors.axisColor,
+          }
+        },
+        axisTicks: {
+          show: false
+        },
+        axisBorder: {
+          show: false
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            fontSize: '13px',
+            colors: config.colors.axisColor,
+          }
+        }
+      },
+      responsive: [
+        {
+          breakpoint: 1700,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '32%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 1580,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '35%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 1440,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '42%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 1300,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '48%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 1200,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '40%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 1040,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 11,
+                columnWidth: '48%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 991,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '30%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 840,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '35%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 768,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '28%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 640,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '32%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 576,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '37%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 480,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '45%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 420,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '52%'
+              }
+            }
+          }
+        },
+        {
+          breakpoint: 380,
+          options: {
+            plotOptions: {
+              bar: {
+                borderRadius: 10,
+                columnWidth: '60%'
+              }
+            }
+          }
+        }
+      ],
+      states: {
+        hover: {
+          filter: {
+            type: 'none'
+          }
+        },
+        active: {
+          filter: {
+            type: 'none'
+          }
+        }
+      }
+    };
+    var chart = new ApexCharts(document.querySelector("#totalRevenueChart"), options);
+    chart.render();
         var _edata=JSON.parse('{!! json_encode($datacountpost) !!}');
         var _fdata=JSON.parse('{!! json_encode($datadatepost) !!}');
        var options = {
@@ -348,7 +602,7 @@
       },
       colors: [config.colors.danger],
       grid: {
-        // borderColor: borderColor,
+        borderColor: config.colors.borderColor,
         strokeDashArray: 3,
         padding: {
           top: -20,
@@ -428,7 +682,7 @@
       },
       colors: [config.colors.danger],
       grid: {
-        // borderColor: borderColor,
+      borderColor: config.colors.borderColor,
         strokeDashArray: 3,
         padding: {
           top: -20,

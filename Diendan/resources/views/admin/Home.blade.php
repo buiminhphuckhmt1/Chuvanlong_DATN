@@ -16,7 +16,7 @@
                         <div class="card-body">
                           <h5 class="card-title text-primary">Xin chúc mừng {{$user->firstname}} {{$user->middlename}} {{$user->lastname}}</h5>
                           <p class="mb-4">
-                            Bạn đã có  <span class="fw-bold">72%</span> lượt truy cập vào website của mình.
+                            Bạn đã có  <span class="fw-bold">{{$visit_count}}</span> lượt truy cập vào website của mình.
                           </p>
                         </div>
                       </div>
