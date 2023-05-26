@@ -6,6 +6,7 @@ use App\Models\Comments;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Visit;
+use App\Statistic;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -30,8 +31,8 @@ class HomeController extends Controller
             return Carbon::parse($count_post_m->date_created)->format('M');
         });
         $count_cmt=Comments::count();
-        $post_date = Post::where('date_updated', '>=', $date)->count();
-        $post_week = Post::where('date_updated', '>=', $date)->get();
+        $post_date = Post::where('date_created', '>=', $date)->count();
+        $post_week = Post::where('date_created', '>=', $date)->get();
         $result =Category::select('name')->get();
         $datalbca = [];
         $datadtca=[];
