@@ -9,23 +9,32 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Visit;
 use DB;
 
 
 class HomeftController extends Controller
 {
     public function index(){
+        $user_ip_address= request()->ip();
+        $data = Post::where("status","=","1")->paginate(10);
+        $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
+        Visit::insert(["ip_address"=>$user_ip_address]);
+        return view("frontend.Home",compact('data'),["datacate"=>$datacate]);
+    }
+    public function home(){
+        $user_ip_address= request()->ip();
         $data = Post::where("status","=","1")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",compact('data'),["datacate"=>$datacate]);
     }
     public function fitterold(){
-        $data = Post::where("status","=","1")->orderBy("date_updated","asc")->paginate(10);
+        $data = Post::where("status","=","1")->orderBy("date_created","asc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }
     public function fitternew(){
-        $data = Post::where("status","=","1")->orderBy("date_updated","desc")->paginate(10);
+        $data = Post::where("status","=","1")->orderBy("date_created","desc")->paginate(10);
         $datacate = DB::table("category_list")->orderBy("id","desc")->paginate(5);
         return view("frontend.Home",["data"=>$data,"datacate"=>$datacate]);
     }

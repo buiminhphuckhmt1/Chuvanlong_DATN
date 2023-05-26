@@ -58,7 +58,7 @@
                     </ul>
                     </div>
                     <div class="logo">
-                        <a href="{{ url('frontend/home')}}" class="nav_logo">
+                        <a href="{{ url('frontend/homes')}}" class="nav_logo">
                             <img src="{{ asset('template/images/logo.svg')}}" alt="">
                         </a>
                     </div>
@@ -85,7 +85,7 @@
                     <div class="nav">
                         <ul class="nav_item">
                             <li class="list_item" v-for="item in menuList">
-                                <a href="{{ url('frontend/home')}}" class="nav_link"> Trang chủ</a>
+                                <a href="{{ url('frontend/homes')}}" class="nav_link"> Trang chủ</a>
                                 <ul class="product_drop">
                                     <li class="list_item" v-for="item in productList"><a href="javascrip:;" class="product_link"></a></li>
                                 </ul>

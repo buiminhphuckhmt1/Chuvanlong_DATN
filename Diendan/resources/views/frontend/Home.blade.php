@@ -7,7 +7,7 @@
                                     <ul class="dropdown-menu" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 40px, 0px);">
                                         <li><a class="dropdown-item" href="{{ url('frontend/new')}}">Mới Nhất</a></li>
                                         <li><a class="dropdown-item" href="{{ url('frontend/old')}}">Cũ Nhất</a></li>
-                                        <li><a class="dropdown-item" href="javascript:void(0);">Hot Nhất</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('frontend/topview')}}">Hot Nhất</a></li>
                                     </ul>
                             </div>
                                 <div class="list_question">
@@ -47,7 +47,7 @@
                                                         <i class="bx bx-dots-vertical-rounded"></i>
                                                         </button>
                                                         <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="http://localhost/Chuvanlong_DATN/Diendan/public/backend/users/update/17"><i class="bx bx-edit-alt me-1"></i> Theo dõi</a>
+                                                            <a class="dropdown-item" href="javascrip:;"><i class="bx bx-edit-alt me-1"></i> Theo dõi</a>
                                                         </div>
                                                     </div>
                                                 </div>

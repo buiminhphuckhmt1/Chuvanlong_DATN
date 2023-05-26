@@ -56,10 +56,9 @@ class HomeController extends Controller
         }
         $percenca=0;
         $percenca=($count_post_type->count()/$count_post)*100;
-        $user_ip_address= '192.168.1.1';
         $visit_current= Visit::select('date_visited')->get()->groupBy(function($visit_current){
             return Carbon::parse($visit_current->date_visited)->format('M'); });
-        $visit_count=$visit_current->count();
+        $visit_count=Visit::count();
         $datavisit = [];
         $datavisitcount=[];
  

@@ -125,6 +125,7 @@ Route::get("frontend",function(){
 });
 use App\Http\Controllers\Frontend\HomeftController;
 Route::get("frontend/home",[HomeftController::class,"index"]);
+Route::get("frontend/homes",[HomeftController::class,"home"]);
 Route::get("frontend/follower",[HomeftController::class,"follow"]);
 Route::get("frontend/tag/{id}",[HomeftController::class,"tag"]);
 Route::get("frontend/alltag",[HomeftController::class,"alltag"]);
