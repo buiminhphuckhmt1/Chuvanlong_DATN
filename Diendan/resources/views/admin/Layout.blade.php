@@ -64,7 +64,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.php" class="app-brand-link">
+            <a href="{{ url('backend/home') }}" class="app-brand-link">
               <span class="app-brand-logo demo w-px-30 h-px-30">
                   <img class="w-px-30 h-px-30" src="{{ asset('template/images/favicon_forum.jpg') }}">
                 </svg>
