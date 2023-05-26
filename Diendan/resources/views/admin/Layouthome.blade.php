@@ -769,7 +769,7 @@
                 fontSize: '0.8125rem',
                 label: '7 ngày',
                 formatter: function (w) {
-                  return _zdata + '%';;
+                  return _zdata.toFixed(2) + '%';;
                 }
               }
             }
